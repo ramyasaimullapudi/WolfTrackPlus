@@ -108,7 +108,7 @@ def add_new_application():
     if (result==0):
         error = "This job application could not be stored in the database. Please try again."
         return render_template('home.html/add_new_application', jobAddError=error)
-    # return render_template('home.html', data=data, upcoming_events=upcoming_events)
+    return render_template('home.html', data=data, upcoming_events=upcoming_events)
 
 
 @home_route.route('/logout', methods=['GET'])

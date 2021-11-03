@@ -20,6 +20,11 @@ class user_dao:
                 return 2
     
     def get_user_id(self, email):
+        result = self.__db.run_query("SELECT count(*),user_id,email FROM user WHERE email='"+email+"'")
+        if result[0][0] == 0:
+            return 0
+        if email == result[0][2]:
+            return result[0][1]
             
 
     def update_details(self):
