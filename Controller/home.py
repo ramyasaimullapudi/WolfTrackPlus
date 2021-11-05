@@ -9,12 +9,6 @@ home_route = Blueprint('home_route', __name__)
 user = User()
 application = Application()
 
-# data = {
-#     "wishlist": ["Microsoft", "Google", "Uber"],
-#     "inprogress": ["Twitter", "Pearson"],
-#     "applied": ["Amazon", "NetApp"],
-#     "offers": ["Perfios"]
-# }
 
 upcoming_events = [
     {"duedate": "28th Sept, 2021",
@@ -33,16 +27,6 @@ upcoming_events = [
      "company": "Amazon"
      }
 ]
-
-# profile = {
-#     "name": "Jessica Holds",
-#     "Location": "Raleigh, NC",
-#     "phone_number": "",
-#     "social": {
-#             "linkedin": "www.linkedin.com/in/surajdm",
-
-#     }
-# }
 
 
 # @home_route.route('', methods=['GET'])
