@@ -36,7 +36,7 @@ Do away with complicated, messy spreadsheets! WolfTrack keeps track of every job
 https://user-images.githubusercontent.com/18304940/135203686-c480c101-7aa5-40ca-9f43-baf291c666cd.mp4
 
 
-[![Video Embed](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.powtoon.com/embed/enUzEufo2at/)
+[![Video Embed](https://wwwcdn.cincopa.com/blogres/wp-content/uploads/2019/02/video-tutorial-image.jpg)](https://www.powtoon.com/embed/enUzEufo2at/)
 
 
 **Our motto:**
