@@ -77,6 +77,8 @@ def signup():
     name =  request.form["name"]
     session['email'] = request.form["email"]
     password = request.form["password"]
+    result = user.post(name,session['email'],password)
+    print(name)
     gender = request.form["gender"]
     location = request.form["location"]
     result = user.post(name,session['email'],password, gender, location)
