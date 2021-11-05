@@ -34,6 +34,8 @@ Do away with complicated, messy spreadsheets! WolfTrack keeps track of every job
 ## Watch WolfTrack in action 
 https://user-images.githubusercontent.com/18304940/135203686-c480c101-7aa5-40ca-9f43-baf291c666cd.mp4
 
+https://www.powtoon.com/c/enUzEufo2at/1/m
+
 
 **Our motto:**
 
@@ -206,5 +208,6 @@ Please refer to the [Contributing.md](https://github.com/Himanshuu-Gupta/WolfTra
 ## Contact 
 In case of any issues, please e-mail your queries to wolftrackse@gmail.com or raise an issue on this repository
 
-https://www.powtoon.com/c/enUzEufo2at/1/m
+<video src='https://www.powtoon.com/c/enUzEufo2at/1/m' width=180/>
+
 
