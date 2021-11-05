@@ -16,7 +16,7 @@
 ![GitHub closed issues](https://img.shields.io/github/issues-closed/ArpithaVijayakumar/WolfTrack)
 ![Lines of code](https://img.shields.io/tokei/lines/github/ArpithaVijayakumar/WolfTrack)
 [![Build Status](https://app.travis-ci.com/UnnatiPrema/WolfTrackPlus.svg?branch=main)](https://app.travis-ci.com/UnnatiPrema/WolfTrackPlus)
-[![codecov](https://codecov.io/gh/bradley-erickson/CmyPlot/branch/main/graph/badge.svg?token=PYRZHGZC5R)](https://codecov.io/gh/bradley-erickson/CmyPlot)
+[![codecov](https://codecov.io/gh/ArpithaVijayakumar/WolfTrackPlus/branch/main/graph/badge.svg?token=h4F94IJMzj)](https://codecov.io/gh/ArpithaVijayakumar/WolfTrackPlus)
 
 **Goal:**<br/>
 
