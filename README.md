@@ -35,8 +35,6 @@ Do away with complicated, messy spreadsheets! WolfTrack keeps track of every job
 ## Watch WolfTrack in action 
 https://user-images.githubusercontent.com/18304940/135203686-c480c101-7aa5-40ca-9f43-baf291c666cd.mp4
 
-Updated video: https://www.powtoon.com/ws/enUzEufo2at/1/m
-
 Updated video: https://www.powtoon.com/embed/enUzEufo2at/
 
 
