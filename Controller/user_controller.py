@@ -15,6 +15,10 @@ class User(Resource):
     def get(self,email,password):
         return self.user.get_user(email,password)
 
+    #@auth
+    def get_auth_user_dao(self, email):
+        return self.user.get_auth_user(email)
+
     #@login_required
     def post(self, name, email,password,gender,location):
         return self.user.create_user(name,email,password,gender,location)

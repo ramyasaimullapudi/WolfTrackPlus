@@ -40,12 +40,18 @@ def login():
     return render_template('login.html', loginError="")
 
 
+@home_route.route('/auth', methods=['GET'])
+def auth():
+    result = user.get_auth_user_dao(session['email'])
+    return render_template('home.html', data=result, upcoming_events=upcoming_events)
+
+
 @home_route.route('/loginUser', methods=['GET', 'POST'])
 def loginUser():
     session['email'] = request.form["username"]
     password = request.form["password"]
     result = user.get(session['email'], password)
-    print(result)
+    # print(result)
     error = ""
     if (result == 0):
         error = "Email does not exits. Please enter a valid email."

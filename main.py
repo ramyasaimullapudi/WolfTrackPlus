@@ -16,6 +16,7 @@ api.add_resource(Profile, '/profile')
 api.add_resource(Application, '/application')
 app.register_blueprint(home_route, url_prefix='/login')
 app.register_blueprint(home_route, url_prefix='/')
+app.register_blueprint(home_route, url_prefix='/auth')
 app.app_context().push()
 
 
