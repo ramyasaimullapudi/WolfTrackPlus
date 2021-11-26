@@ -26,6 +26,5 @@ class Application(Resource):
         return {'you sent': some_json}, 201
 
     # @login_required
-    def delete(self):
-        some_json=request.get_json()
-        return {'you sent': some_json}, 201
+    def delete(self, application_id):
+        return self.application.delete_application(application_id)

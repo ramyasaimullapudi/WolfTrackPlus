@@ -33,6 +33,8 @@ class application_dao:
     def update_application(self):
         pass
 
-    def delete_application(self):
-        pass
+    def delete_application(self, application_id):
+        res = self.__db.run_query(
+            "DELETE FROM application WHERE application_id=" + str(application_id))
+        return res
 

@@ -133,18 +133,18 @@ def change_status_application():
     return redirect("/auth")
     #return render_template('home.html', data=data, upcoming_events=upcoming_events)
 
-#
-# @home_route.route("/delete_application", methods=["POST"])
-# # @login_required
-# def change_status_application():
-#     application_id = request.form["application_id"]
-#     result = application.delete_application( application_id)
-#     if (result == 0):
-#         error = "This job application could not be stored in the database. Please try again."
-#         return render_template('home.html', jobAddError=error)
-#     data = {}
-#     return redirect("/auth")
-#     #return render_template('home.html', data=data, upcoming_events=upcoming_events)
+
+@home_route.route("/delete_application", methods=["POST"])
+# @login_required
+def delete_application():
+    application_id = request.form["application_id"]
+    result = application.delete( application_id)
+    if (result == 0):
+        error = "This job application could not be stored in the database. Please try again."
+        return render_template('home.html', jobAddError=error)
+    data = {}
+    return redirect("/auth")
+    #return render_template('home.html', data=data, upcoming_events=upcoming_events)
 
 
 @home_route.route('/logout', methods=['GET'])
