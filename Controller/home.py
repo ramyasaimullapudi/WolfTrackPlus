@@ -1,6 +1,6 @@
 from flask import Blueprint, flash, session
 from flask import Flask, render_template, url_for, request
-from flask_login import login_required, logout_user
+from flask_login import login_required, logout_user, login_manager
 from werkzeug.utils import redirect
 from Controller.user_controller import User
 from Controller.application_controller import Application
@@ -9,15 +9,16 @@ home_route = Blueprint('home_route', __name__)
 
 user = User()
 application = Application()
+# login = login_manager.LoginManager(application)
 
 upcoming_events = [
-    {"duedate": "28th Sept, 2021",
+    {"duedate": "10th Dec, 2021",
      "company": "Apple"
      },
-    {"duedate": "19th Dec, 2021",
+    {"duedate": "12th Dec, 2021",
      "company": "Microsoft"
      },
-    {"duedate": "21st Dec, 2021",
+    {"duedate": "15th Dec, 2021",
      "company": "Amazon"
      },
     {"duedate": "21st Dec, 2021",
@@ -29,12 +30,12 @@ upcoming_events = [
 ]
 
 
-# @home_route.route('', methods=['GET'])
-# @login_required
-# def home():
-#     return render_template('home.html', data=data, upcoming_events=upcoming_events)
+@home_route.route('/', methods=['GET'])
+def home():
+    print(session)
+    result = user.get(session['email'], 'Builder!12')
+    return render_template('home.html', data=result, upcoming_events=upcoming_events)
 
-@home_route.route('/', methods=['GET', 'POST'])
 @home_route.route('/login', methods=['GET', 'POST'])
 def login():
     return render_template('login.html', loginError="")
@@ -42,8 +43,9 @@ def login():
 
 @home_route.route('/auth', methods=['GET'])
 def auth():
-    result = user.get_auth_user_dao(session['email'])
-    return render_template('home.html', data=result, upcoming_events=upcoming_events)
+    data = user.get_auth_user_dao(session['email'])
+    data["wishlist"] = application.get(session['email'], 1)
+    return render_template('home.html', data=data, upcoming_events=upcoming_events)
 
 
 @home_route.route('/loginUser', methods=['GET', 'POST'])
@@ -106,14 +108,17 @@ def add_new_application():
     security_answer = request.form["securityAnswer"]
     notes = request.form["notes"]
     date_applied = request.form["dateApplied"]
+    status = request.form["status"]
+    print("status", status)
     result = application.post(session['email'], company_name, location, job_profile, salary, username, password,
                               security_question, security_answer, notes,
-                              date_applied)
+                              date_applied, status)
     if (result == 0):
         error = "This job application could not be stored in the database. Please try again."
         return render_template('home.html', jobAddError=error)
     data = {}
-    return render_template('home.html', data=data, upcoming_events=upcoming_events)
+    return redirect("/auth")
+    #return render_template('home.html', data=data, upcoming_events=upcoming_events)
 
 
 @home_route.route('/logout', methods=['GET'])

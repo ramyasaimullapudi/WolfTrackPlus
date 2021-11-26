@@ -1,4 +1,4 @@
- from flask.typing import StatusCode
+from flask.typing import StatusCode
 
 import unittest
 import sys, os, inspect

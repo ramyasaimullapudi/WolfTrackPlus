@@ -5,8 +5,7 @@ class application_dao:
         self.__db = sql_helper()
 
     def add_application(self, email, company_name, location, job_profile, salary, username, password, security_question, security_answer, notes,
-    date_applied):
-        status = "TO_DO"
+    date_applied, status):
         userId = self.__db.run_query("SELECT user_id FROM user WHERE email='"+email+"'")[0][0]
         
         self.__db.run_query("INSERT into company (company_name) values ('"+company_name+"');")
