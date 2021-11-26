@@ -14,9 +14,9 @@ class Application(Resource):
 
     # @login_required
     def post(self, email, company_name, location, job_profile, salary, username, password, security_question, security_answer, notes,
-    date_applied):
+    date_applied, status):
         return self.application.add_application(email, company_name, location, job_profile, salary, username, password, security_question, security_answer, notes,
-    date_applied)
+    date_applied, status)
 
     # @login_required
     def put(self):
