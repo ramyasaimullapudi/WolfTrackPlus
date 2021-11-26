@@ -1,5 +1,7 @@
 {% extends "layout/base.html" %}
 {% block content %}
+
+
 <div class="row">
     <div class="card status-card col-md" style="width: 18rem;">
         <i class="material-icons card-icons">schedule</i>
@@ -9,7 +11,56 @@
         <ul class="list-group list-group-flush">
             {% for item in data.wishlist %}
             {% if item.1 == 'TO_DO' %}
-            <li class="list-group-item border-0">{{ item.0 }}</li>
+            <div class="list-group-item"
+                 style="background-color: #34e8eb; border: 2px solid black; border-radius: 20px; margin: 5px; color: black; font-weight: bold; box-shadow: 5px 10px; ;">
+                <span>{{ item.0 }}</span>
+                <a href="#" class="btn btn-info" data-toggle="modal" data-target="#change_status_wishlist{{item.3}}"><i
+                        class="material-icons">sync_alt</i></a>
+
+                <div class="modal fade new-application-modal" id="change_status_wishlist{{item.3}}" tabindex="-1"
+                     role="dialog"
+                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <form action="/change_status_application" method="POST" id="change_status_application">
+
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="status_change">Change Status of the Application</label>
+                                        <select name="status_change" class="form-control" id="status_change">
+                                            <option selected value="TO_DO">Wishlist</option>
+                                            <option value="IN_PROCESS">In Process</option>
+                                            <option value="APPLIED">Applied</option>
+                                            <option value="ACCEPTED">Offers</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="application_id" name="application_id" type="hidden"
+                                               value="{{item.3}}">
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">Change Status</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#change_status_wishlist"><i
+                        class="material-icons">edit</i></a>
+                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#change_status_wishlist"><i
+                        class="material-icons">delete</i></a>
+            </div>
             {% endif %}
             {% endfor %}
         </ul>
@@ -27,7 +78,13 @@
         <ul class="list-group list-group-flush">
             {% for item in data.wishlist %}
             {% if item.1 == 'IN_PROCESS' %}
-            <li class="list-group-item border-0">{{ item.0 }}</li>
+            <div class="list-group-item"
+                 style="background-color: #34e8eb; border: 2px solid black; border-radius: 20px; margin: 5px; color: black; font-weight: bold; box-shadow: 5px 10px; ;">
+                <span>{{ item.0 }}</span>
+                <button type="button" class="btn btn-info"><i class="material-icons">sync_alt</i></button>
+                <button type="button" class="btn btn-secondary"><i class="material-icons">edit</i></button>
+                <button type="button" class="btn btn-danger"><i class="material-icons">delete</i></button>
+            </div>
             {% endif %}
             {% endfor %}
         </ul>
@@ -47,7 +104,13 @@
         <ul class="list-group list-group-flush">
             {% for item in data.wishlist %}
             {% if item.1 == 'APPLIED' %}
-            <li class="list-group-item border-0">{{ item.0 }}</li>
+            <div class="list-group-item"
+                 style="background-color: #34e8eb; border: 2px solid black; border-radius: 20px; margin: 5px; color: black; font-weight: bold; box-shadow: 5px 10px; ;">
+                <span>{{ item.0 }}</span>
+                <button type="button" class="btn btn-info"><i class="material-icons">sync_alt</i></button>
+                <button type="button" class="btn btn-secondary"><i class="material-icons">edit</i></button>
+                <button type="button" class="btn btn-danger"><i class="material-icons">delete</i></button>
+            </div>
             {% endif %}
             {% endfor %}
 
@@ -66,7 +129,13 @@
         <ul class="list-group list-group-flush">
             {% for item in data.wishlist %}
             {% if item.1 == 'ACCEPTED' %}
-            <li class="list-group-item border-0">{{ item.0 }}</li>
+            <div class="list-group-item"
+                 style="background-color: #34e8eb; border: 2px solid black; border-radius: 20px; margin: 5px; color: black; font-weight: bold; box-shadow: 5px 10px; ;">
+                <span>{{ item.0 }}</span>
+                <button type="button" class="btn btn-info"><i class="material-icons">sync_alt</i></button>
+                <button type="button" class="btn btn-secondary"><i class="material-icons">edit</i></button>
+                <button type="button" class="btn btn-danger"><i class="material-icons">delete</i></button>
+            </div>
             {% endif %}
             {% endfor %}
         </ul>

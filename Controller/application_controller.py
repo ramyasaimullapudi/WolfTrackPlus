@@ -18,6 +18,8 @@ class Application(Resource):
         return self.application.add_application(email, company_name, location, job_profile, salary, username, password, security_question, security_answer, notes,
     date_applied, status)
 
+    def change_status(self,  status, application_id):
+        return self.application.change_status(status, application_id)
     # @login_required
     def put(self):
         some_json=request.get_json()

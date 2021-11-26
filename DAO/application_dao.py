@@ -18,10 +18,17 @@ class application_dao:
 
     def get_application(self, email, application_status):
         userId = self.__db.run_query("SELECT user_id FROM user WHERE email='"+email+"'")[0][0]
-        res = self.__db.run_query("SELECT company_name, status, application_date FROM application JOIN company ON company.company_id = application.company_id WHERE user_id="+str(userId))
+        res = self.__db.run_query("SELECT company_name, status, application_date, application_id FROM application JOIN company ON company.company_id = application.company_id WHERE user_id="+str(userId))
+        # res = self.__db.run_query("SELECT * FROM application JOIN company ON company.company_id = application.company_id WHERE user_id="+str(userId))
 
         print(res)
         return res
+
+    def change_status(self, application_id, status):
+        res = self.__db.run_query("UPDATE application SET status = '"+status+"' WHERE application_id="+str(application_id))
+        print(res)
+        return res
+
 
     def update_application(self):
         pass
