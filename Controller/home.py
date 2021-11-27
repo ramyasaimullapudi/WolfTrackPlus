@@ -116,7 +116,6 @@ def add_new_application():
         return render_template('home.html', jobAddError=error)
     data = {}
     return redirect("/auth")
-    #return render_template('home.html', data=data, upcoming_events=upcoming_events)
 
 
 @home_route.route("/change_status_application", methods=["POST"])
@@ -131,7 +130,6 @@ def change_status_application():
         return render_template('home.html', jobAddError=error)
     data = {}
     return redirect("/auth")
-    #return render_template('home.html', data=data, upcoming_events=upcoming_events)
 
 
 @home_route.route("/delete_application", methods=["POST"])
@@ -146,6 +144,31 @@ def delete_application():
     return redirect("/auth")
     #return render_template('home.html', data=data, upcoming_events=upcoming_events)
 
+
+@home_route.route("/edit_application", methods=["POST"])
+# @login_required
+def edit_application():
+    company_name = request.form["companyName"]
+    location = request.form["location"]
+    job_profile = request.form["jobProfile"]
+    salary = request.form["salary"]
+    username = request.form["username"]
+    password = request.form["password"]
+    security_question = request.form["securityQuestion"]
+    security_answer = request.form["securityAnswer"]
+    notes = request.form["notes"]
+    date_applied = request.form["dateApplied"]
+    status = request.form["status"]
+    application_id = request.form["application_id"]
+    print("status", status)
+    result = application.update(company_name, location, job_profile, salary, username, password,
+                              security_question, security_answer, notes,
+                              date_applied, status, application_id)
+    if (result == 0):
+        error = "This job application could not be stored in the database. Please try again."
+        return render_template('home.html', jobAddError=error)
+    data = {}
+    return redirect("/auth")
 
 @home_route.route('/logout', methods=['GET'])
 # @login_required
