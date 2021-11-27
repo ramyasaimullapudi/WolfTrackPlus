@@ -198,12 +198,175 @@
         <ul class="list-group list-group-flush">
             {% for item in data.wishlist %}
             {% if item.1 == 'IN_PROCESS' %}
-            <div class="list-group-item"
+                        <div class="list-group-item"
                  style="background-color: #34e8eb; border: 2px solid black; border-radius: 20px; margin: 5px; color: black; font-weight: bold; box-shadow: 5px 10px; ;">
                 <span>{{ item.0 }}</span>
-                <button type="button" class="btn btn-info"><i class="material-icons">sync_alt</i></button>
-                <button type="button" class="btn btn-secondary"><i class="material-icons">edit</i></button>
-                <button type="button" class="btn btn-danger"><i class="material-icons">delete</i></button>
+                <a href="#" class="btn btn-info" data-toggle="modal" data-target="#change_status_wishlist{{item.3}}"><i
+                        class="material-icons">sync_alt</i></a>
+                <div class="modal fade new-application-modal" id="change_status_wishlist{{item.3}}" tabindex="-1"
+                     role="dialog"
+                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <form action="/change_status_application" method="POST" id="change_status_application">
+
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="status_change">Change Status of the Application</label>
+                                        <select name="status_change" class="form-control" id="status_change">
+                                            <option value="TO_DO">Wishlist</option>
+                                            <option selected value="IN_PROCESS">In Process</option>
+                                            <option value="APPLIED">Applied</option>
+                                            <option value="ACCEPTED">Offers</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="application_id" name="application_id"
+                                               type="hidden"
+                                               value="{{item.3}}">
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">Change Status</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#edit_application{{item.3}}"><i
+                        class="material-icons">edit</i></a>
+                <div class="modal fade new-application-modal" id="edit_application{{item.3}}" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">New Job Application</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" style="text-align: left;">
+                                <form action="/edit_application" method="POST" id="edit_application{{item.3}}">
+                                    <div class="form-group">
+                                        <label for="exampleInputName">Company Name</label>
+                                        <input type="text" name="companyName" class="form-control" id="exampleInputName"
+                                               placeholder="Enter Company Name"
+                                               required="required" value="{{item.0}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Location">Location</label>
+                                        <input type="text" name="location" class="form-control" id="Location"
+                                               placeholder="Enter Location" required="required" value="{{item.4}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="JobProfile">Job Profile</label>
+                                        <input type="text" name="jobProfile" class="form-control" id="JobProfile"
+                                               placeholder="Enter Job Profile" required="required" value="{{item.5}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Salary">Salary</label>
+                                        <input type="text" name="salary" class="form-control" id="Salary"
+                                               placeholder="Enter Salary"
+                                               required="required" value="{{item.6}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Username">Username</label>
+                                        <input type="text" name="username" class="form-control" id="Username"
+                                               placeholder="Enter Username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Password">Password</label>
+                                        <input type="text" name="password" class="form-control" id="Password"
+                                               placeholder="Enter Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="SecurityQuestion">Security Question</label>
+                                        <input type="text" name="securityQuestion" class="form-control"
+                                               id="SecurityQuestion"
+                                               placeholder="Enter Security Question">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="SecurityAnswer">Security Answer</label>
+                                        <input type="text" name="securityAnswer" class="form-control"
+                                               id="SecurityAnswer"
+                                               placeholder="Enter Security Answer">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Notes">Notes</label>
+                                        <textarea class="form-control" id="Notes" name="notes"
+                                                  placeholder="Save links and other information here">{{item.7}}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="example-date-input" class="col-3 col-form-label">Date
+                                            Applied</label>
+                                        <div class="col-10">
+                                            <input class="form-control" name="dateApplied" type="date"
+                                                   value="{{item.2}}"
+                                                   id="example-date-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="status" name="status" type="hidden"
+                                               value="{{item.1}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="application_id" name="application_id" type="hidden"
+                                               value="{{item.3}}">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete_application{{item.3}}"><i
+                        class="material-icons">delete</i></a>
+                <div class="modal fade new-application-modal" id="delete_application{{item.3}}" tabindex="-1"
+                     role="dialog"
+                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <form action="/delete_application" method="POST" id="delete_application">
+
+                                <div class="modal-body">
+                                    <div>Are you sure you want to delete the application {{item.0}}</div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="application_id" name="application_id"
+                                               type="hidden"
+                                               value="{{item.3}}">
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">Delete Application</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             {% endif %}
             {% endfor %}
@@ -227,9 +390,172 @@
             <div class="list-group-item"
                  style="background-color: #34e8eb; border: 2px solid black; border-radius: 20px; margin: 5px; color: black; font-weight: bold; box-shadow: 5px 10px; ;">
                 <span>{{ item.0 }}</span>
-                <button type="button" class="btn btn-info"><i class="material-icons">sync_alt</i></button>
-                <button type="button" class="btn btn-secondary"><i class="material-icons">edit</i></button>
-                <button type="button" class="btn btn-danger"><i class="material-icons">delete</i></button>
+                <a href="#" class="btn btn-info" data-toggle="modal" data-target="#change_status_wishlist{{item.3}}"><i
+                        class="material-icons">sync_alt</i></a>
+                <div class="modal fade new-application-modal" id="change_status_wishlist{{item.3}}" tabindex="-1"
+                     role="dialog"
+                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <form action="/change_status_application" method="POST" id="change_status_application">
+
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="status_change">Change Status of the Application</label>
+                                        <select name="status_change" class="form-control" id="status_change">
+                                            <option value="TO_DO">Wishlist</option>
+                                            <option value="IN_PROCESS">In Process</option>
+                                            <option selected value="APPLIED">Applied</option>
+                                            <option value="ACCEPTED">Offers</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="application_id" name="application_id"
+                                               type="hidden"
+                                               value="{{item.3}}">
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">Change Status</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#edit_application{{item.3}}"><i
+                        class="material-icons">edit</i></a>
+                <div class="modal fade new-application-modal" id="edit_application{{item.3}}" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">New Job Application</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" style="text-align: left;">
+                                <form action="/edit_application" method="POST" id="edit_application{{item.3}}">
+                                    <div class="form-group">
+                                        <label for="exampleInputName">Company Name</label>
+                                        <input type="text" name="companyName" class="form-control" id="exampleInputName"
+                                               placeholder="Enter Company Name"
+                                               required="required" value="{{item.0}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Location">Location</label>
+                                        <input type="text" name="location" class="form-control" id="Location"
+                                               placeholder="Enter Location" required="required" value="{{item.4}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="JobProfile">Job Profile</label>
+                                        <input type="text" name="jobProfile" class="form-control" id="JobProfile"
+                                               placeholder="Enter Job Profile" required="required" value="{{item.5}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Salary">Salary</label>
+                                        <input type="text" name="salary" class="form-control" id="Salary"
+                                               placeholder="Enter Salary"
+                                               required="required" value="{{item.6}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Username">Username</label>
+                                        <input type="text" name="username" class="form-control" id="Username"
+                                               placeholder="Enter Username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Password">Password</label>
+                                        <input type="text" name="password" class="form-control" id="Password"
+                                               placeholder="Enter Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="SecurityQuestion">Security Question</label>
+                                        <input type="text" name="securityQuestion" class="form-control"
+                                               id="SecurityQuestion"
+                                               placeholder="Enter Security Question">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="SecurityAnswer">Security Answer</label>
+                                        <input type="text" name="securityAnswer" class="form-control"
+                                               id="SecurityAnswer"
+                                               placeholder="Enter Security Answer">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Notes">Notes</label>
+                                        <textarea class="form-control" id="Notes" name="notes"
+                                                  placeholder="Save links and other information here">{{item.7}}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="example-date-input" class="col-3 col-form-label">Date
+                                            Applied</label>
+                                        <div class="col-10">
+                                            <input class="form-control" name="dateApplied" type="date"
+                                                   value="{{item.2}}"
+                                                   id="example-date-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="status" name="status" type="hidden"
+                                               value="{{item.1}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="application_id" name="application_id" type="hidden"
+                                               value="{{item.3}}">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete_application{{item.3}}"><i
+                        class="material-icons">delete</i></a>
+                <div class="modal fade new-application-modal" id="delete_application{{item.3}}" tabindex="-1"
+                     role="dialog"
+                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <form action="/delete_application" method="POST" id="delete_application">
+
+                                <div class="modal-body">
+                                    <div>Are you sure you want to delete the application {{item.0}}</div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="application_id" name="application_id"
+                                               type="hidden"
+                                               value="{{item.3}}">
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">Delete Application</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             {% endif %}
             {% endfor %}
@@ -252,9 +578,172 @@
             <div class="list-group-item"
                  style="background-color: #34e8eb; border: 2px solid black; border-radius: 20px; margin: 5px; color: black; font-weight: bold; box-shadow: 5px 10px; ;">
                 <span>{{ item.0 }}</span>
-                <button type="button" class="btn btn-info"><i class="material-icons">sync_alt</i></button>
-                <button type="button" class="btn btn-secondary"><i class="material-icons">edit</i></button>
-                <button type="button" class="btn btn-danger"><i class="material-icons">delete</i></button>
+                <a href="#" class="btn btn-info" data-toggle="modal" data-target="#change_status_wishlist{{item.3}}"><i
+                        class="material-icons">sync_alt</i></a>
+                <div class="modal fade new-application-modal" id="change_status_wishlist{{item.3}}" tabindex="-1"
+                     role="dialog"
+                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <form action="/change_status_application" method="POST" id="change_status_application">
+
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="status_change">Change Status of the Application</label>
+                                        <select name="status_change" class="form-control" id="status_change">
+                                            <option value="TO_DO">Wishlist</option>
+                                            <option value="IN_PROCESS">In Process</option>
+                                            <option value="APPLIED">Applied</option>
+                                            <option selected value="ACCEPTED">Offers</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="application_id" name="application_id"
+                                               type="hidden"
+                                               value="{{item.3}}">
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">Change Status</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#edit_application{{item.3}}"><i
+                        class="material-icons">edit</i></a>
+                <div class="modal fade new-application-modal" id="edit_application{{item.3}}" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">New Job Application</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" style="text-align: left;">
+                                <form action="/edit_application" method="POST" id="edit_application{{item.3}}">
+                                    <div class="form-group">
+                                        <label for="exampleInputName">Company Name</label>
+                                        <input type="text" name="companyName" class="form-control" id="exampleInputName"
+                                               placeholder="Enter Company Name"
+                                               required="required" value="{{item.0}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Location">Location</label>
+                                        <input type="text" name="location" class="form-control" id="Location"
+                                               placeholder="Enter Location" required="required" value="{{item.4}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="JobProfile">Job Profile</label>
+                                        <input type="text" name="jobProfile" class="form-control" id="JobProfile"
+                                               placeholder="Enter Job Profile" required="required" value="{{item.5}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Salary">Salary</label>
+                                        <input type="text" name="salary" class="form-control" id="Salary"
+                                               placeholder="Enter Salary"
+                                               required="required" value="{{item.6}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Username">Username</label>
+                                        <input type="text" name="username" class="form-control" id="Username"
+                                               placeholder="Enter Username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Password">Password</label>
+                                        <input type="text" name="password" class="form-control" id="Password"
+                                               placeholder="Enter Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="SecurityQuestion">Security Question</label>
+                                        <input type="text" name="securityQuestion" class="form-control"
+                                               id="SecurityQuestion"
+                                               placeholder="Enter Security Question">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="SecurityAnswer">Security Answer</label>
+                                        <input type="text" name="securityAnswer" class="form-control"
+                                               id="SecurityAnswer"
+                                               placeholder="Enter Security Answer">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Notes">Notes</label>
+                                        <textarea class="form-control" id="Notes" name="notes"
+                                                  placeholder="Save links and other information here">{{item.7}}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="example-date-input" class="col-3 col-form-label">Date
+                                            Applied</label>
+                                        <div class="col-10">
+                                            <input class="form-control" name="dateApplied" type="date"
+                                                   value="{{item.2}}"
+                                                   id="example-date-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="status" name="status" type="hidden"
+                                               value="{{item.1}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="application_id" name="application_id" type="hidden"
+                                               value="{{item.3}}">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete_application{{item.3}}"><i
+                        class="material-icons">delete</i></a>
+                <div class="modal fade new-application-modal" id="delete_application{{item.3}}" tabindex="-1"
+                     role="dialog"
+                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <form action="/delete_application" method="POST" id="delete_application">
+
+                                <div class="modal-body">
+                                    <div>Are you sure you want to delete the application {{item.0}}</div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="application_id" name="application_id"
+                                               type="hidden"
+                                               value="{{item.3}}">
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">Delete Application</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             {% endif %}
             {% endfor %}

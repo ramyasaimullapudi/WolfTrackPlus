@@ -26,18 +26,15 @@ class application_dao:
     def get_application(self, email, application_status):
         userId = self.__db.run_query("SELECT user_id FROM user WHERE email='" + email + "'")[0][0]
 
-        sQuery = "SELECT company_name, status, application_date, application_id, location, role, salary, imortant_links" +\
-            "  FROM application JOIN company ON company.company_id = application.company_id " +\
-            " JOIN roles ON roles.role_id = application.role_id " +\
-            "WHERE user_id=" + str(userId)
+        sQuery = "SELECT company_name, status, application_date, application_id, location, role, salary, imortant_links" + \
+                 "  FROM application JOIN company ON company.company_id = application.company_id " + \
+                 " JOIN roles ON roles.role_id = application.role_id " + \
+                 "WHERE user_id=" + str(userId)
 
-        if application_status!='':
-            sQuery+= f" and status = '{application_status}'"
+        if application_status != '':
+            sQuery += f" and status = '{application_status}'"
 
         res = self.__db.run_query(sQuery)
-
-
-
 
         res = [list(i) for i in res]
         for i in res:
@@ -66,17 +63,16 @@ class application_dao:
             self.__db.run_query("INSERT INTO roles (role) values ('" + job_profile + "');")
             roleId = self.__db.run_query("SELECT role_id FROM roles WHERE role='" + job_profile + "'")[0][0]
 
-        sQuery =  f"Update application set company_id={companyId}, role_id={roleId}, job_description='{job_profile}', "+\
-            f"salary={salary}, location='{location}', status='{status}', imortant_links='{notes}' where application_id="+ str(application_id)
+        sQuery = f"Update application set company_id={companyId}, role_id={roleId}, job_description='{job_profile}', " + \
+                 f"salary={salary}, location='{location}', status='{status}', imortant_links='{notes}' where application_id=" + str(
+            application_id)
         return self.__db.run_query(sQuery)
-
 
     def change_status(self, application_id, status):
         res = self.__db.run_query(
             "UPDATE application SET status = '" + status + "' WHERE application_id=" + str(application_id))
         print(res)
         return res
-
 
     def delete_application(self, application_id):
         res = self.__db.run_query(
