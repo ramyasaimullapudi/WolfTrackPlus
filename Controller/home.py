@@ -50,7 +50,7 @@ def loginUser():
     session['email'] = request.form["username"]
     password = request.form["password"]
     result = user.get(session['email'], password)
-    # print(result)
+    print(result)
     error = ""
     if (result == 0):
         error = "Email does not exits. Please enter a valid email."
@@ -166,6 +166,21 @@ def edit_application():
                                 date_applied, status, application_id)
     if (result == 0):
         error = "This job application could not be stored in the database. Please try again."
+        return render_template('home.html', jobAddError=error)
+    data = {}
+    return redirect("/auth")
+
+
+@home_route.route("/edit_profile", methods=["POST"])
+# @login_required
+def edit_profile():
+    name = request.form["name"]
+    gender = request.form["gender"]
+    location = request.form["location"]
+    user_id = request.form["user_id"]
+    result = user.edit_profile(user_id, name, gender, location)
+    if (result == 0):
+        error = "This user not found in the database. Please try again."
         return render_template('home.html', jobAddError=error)
     data = {}
     return redirect("/auth")

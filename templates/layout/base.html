@@ -52,8 +52,52 @@
             width="250px" data-holder-rendered="true">
 
           <br><br>
-
           <div class="card" style="width: 18rem; text-align: left;">
+
+            <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#edit_profile"><i
+                class="material-icons">edit</i></a>
+            <div class="modal fade new-application-modal" id="edit_profile" tabindex="-1" role="dialog"
+              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Edit Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body" style="text-align: left;">
+                    <form action="/edit_profile" method="POST" id="edit_profile">
+                      <div class="form-group">
+                        <label for="exampleInputName">Name</label>
+                        <input type="text" name="name" class="form-control" id="name" required="required"
+                          value={{data.full_name}}>
+                      </div>
+                      <div class="form-group">
+                        <label for="Location">Gender</label>
+                        <input type="text" name="gender" class="form-control" id="gender" required="required"
+                          value={{data.gender}}>
+                      </div>
+                      <div class="form-group">
+                        <label for="JobProfile">Location</label>
+                        <input type="text" name="location" class="form-control" id="location" required="required"
+                          value={{data.location}}>
+                      </div>
+                      <div class="form-group">
+                        <input class="form-control" id="user_id" name="user_id" type="hidden" value={{data.user_id}}>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                        </button>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                      </div>
+                    </form>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
             <div class="card-body">
               <h5 class="card-title">{{data["full_name"]}}</h5>
               <div class="row">
