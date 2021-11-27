@@ -60,7 +60,8 @@ def loginUser():
         error = "Password incorrect."
         return render_template('login.html', loginError=error)
     else:
-        return render_template('home.html', data=result, upcoming_events=upcoming_events)
+        return redirect("/auth")
+        # return render_template('home.html', data=result, upcoming_events=upcoming_events)
 
 
 @home_route.route('/signup', methods=['POST'])
@@ -116,6 +117,7 @@ def add_new_application():
         return render_template('home.html', jobAddError=error)
     data = {}
     return redirect("/auth")
+
 
 
 @home_route.route("/change_status_application", methods=["POST"])
