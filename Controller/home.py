@@ -31,9 +31,8 @@ upcoming_events = [
 
 
 @home_route.route('/', methods=['GET'])
-def home():
-    return redirect("/auth")
-
+# def home():
+#     return redirect("/auth")
 @home_route.route('/login', methods=['GET', 'POST'])
 def login():
     return render_template('login.html', loginError="")
@@ -51,7 +50,7 @@ def loginUser():
     session['email'] = request.form["username"]
     password = request.form["password"]
     result = user.get(session['email'], password)
-    # print(result)
+    print(result)
     error = ""
     if (result == 0):
         error = "Email does not exits. Please enter a valid email."
@@ -119,14 +118,13 @@ def add_new_application():
     return redirect("/auth")
 
 
-
 @home_route.route("/change_status_application", methods=["POST"])
 # @login_required
 def change_status_application():
     status = request.form["status_change"]
     application_id = request.form["application_id"]
     print("status", status)
-    result = application.change_status( application_id, status)
+    result = application.change_status(application_id, status)
     if (result == 0):
         error = "This job application could not be stored in the database. Please try again."
         return render_template('home.html', jobAddError=error)
@@ -138,13 +136,13 @@ def change_status_application():
 # @login_required
 def delete_application():
     application_id = request.form["application_id"]
-    result = application.delete( application_id)
+    result = application.delete(application_id)
     if (result == 0):
         error = "This job application could not be stored in the database. Please try again."
         return render_template('home.html', jobAddError=error)
     data = {}
     return redirect("/auth")
-    #return render_template('home.html', data=data, upcoming_events=upcoming_events)
+    # return render_template('home.html', data=data, upcoming_events=upcoming_events)
 
 
 @home_route.route("/edit_application", methods=["POST"])
@@ -164,13 +162,29 @@ def edit_application():
     application_id = request.form["application_id"]
     print("status", status)
     result = application.update(company_name, location, job_profile, salary, username, password,
-                              security_question, security_answer, notes,
-                              date_applied, status, application_id)
+                                security_question, security_answer, notes,
+                                date_applied, status, application_id)
     if (result == 0):
         error = "This job application could not be stored in the database. Please try again."
         return render_template('home.html', jobAddError=error)
     data = {}
     return redirect("/auth")
+
+
+@home_route.route("/edit_profile", methods=["POST"])
+# @login_required
+def edit_profile():
+    name = request.form["name"]
+    gender = request.form["gender"]
+    location = request.form["location"]
+    user_id = request.form["user_id"]
+    result = user.edit_profile(user_id, name, gender, location)
+    if (result == 0):
+        error = "This user not found in the database. Please try again."
+        return render_template('home.html', jobAddError=error)
+    data = {}
+    return redirect("/auth")
+
 
 @home_route.route('/logout', methods=['GET'])
 # @login_required
