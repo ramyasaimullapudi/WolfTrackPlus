@@ -42,7 +42,7 @@ def login():
 @home_route.route('/auth', methods=['GET'])
 def auth():
     data = user.get_auth_user_dao(session['email'])
-    data["wishlist"] = application.get(session['email'], 1)
+    data["wishlist"] = application.get(session['email'], '')
     return render_template('home.html', data=data, upcoming_events=upcoming_events)
 
 
@@ -84,7 +84,7 @@ def signup():
 @home_route.route('/view', methods=['GET'])
 # @login_required
 def view():
-    application_category = request.args.get('show')
+    application_category = request.args.get('show').upper()
 
     result_data = application.get(session["email"], application_category)
 

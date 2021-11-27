@@ -25,12 +25,19 @@ class application_dao:
 
     def get_application(self, email, application_status):
         userId = self.__db.run_query("SELECT user_id FROM user WHERE email='" + email + "'")[0][0]
-        res = self.__db.run_query(
-            "SELECT company_name, status, application_date, application_id, location, role, salary, imortant_links" +
-            "  FROM application JOIN company ON company.company_id = application.company_id " +
-            " JOIN roles ON roles.role_id = application.role_id " +
-            "WHERE user_id=" + str(
-                userId))
+
+        sQuery = "SELECT company_name, status, application_date, application_id, location, role, salary, imortant_links" +\
+            "  FROM application JOIN company ON company.company_id = application.company_id " +\
+            " JOIN roles ON roles.role_id = application.role_id " +\
+            "WHERE user_id=" + str(userId)
+
+        if application_status!='':
+            sQuery+= f" and status = '{application_status}'"
+
+        res = self.__db.run_query(sQuery)
+
+
+
 
         res = [list(i) for i in res]
         for i in res:
