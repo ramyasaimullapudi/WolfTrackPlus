@@ -31,10 +31,9 @@ upcoming_events = [
 
 
 @home_route.route('/', methods=['GET'])
-# def home():
-#     print(session)
-#     result = user.get(session['email'], 'Builder!12')
-#     return render_template('home.html', data=result, upcoming_events=upcoming_events)
+def home():
+    return redirect("/auth")
+
 @home_route.route('/login', methods=['GET', 'POST'])
 def login():
     return render_template('login.html', loginError="")
@@ -43,7 +42,7 @@ def login():
 @home_route.route('/auth', methods=['GET'])
 def auth():
     data = user.get_auth_user_dao(session['email'])
-    data["wishlist"] = application.get(session['email'], 1)
+    data["wishlist"] = application.get(session['email'], '')
     return render_template('home.html', data=data, upcoming_events=upcoming_events)
 
 
@@ -86,7 +85,7 @@ def signup():
 @home_route.route('/view', methods=['GET'])
 # @login_required
 def view():
-    application_category = request.args.get('show')
+    application_category = request.args.get('show').upper()
 
     result_data = application.get(session["email"], application_category)
 
@@ -118,8 +117,60 @@ def add_new_application():
         return render_template('home.html', jobAddError=error)
     data = {}
     return redirect("/auth")
-    # return render_template('home.html', data=data, upcoming_events=upcoming_events)
 
+
+
+@home_route.route("/change_status_application", methods=["POST"])
+# @login_required
+def change_status_application():
+    status = request.form["status_change"]
+    application_id = request.form["application_id"]
+    print("status", status)
+    result = application.change_status( application_id, status)
+    if (result == 0):
+        error = "This job application could not be stored in the database. Please try again."
+        return render_template('home.html', jobAddError=error)
+    data = {}
+    return redirect("/auth")
+
+
+@home_route.route("/delete_application", methods=["POST"])
+# @login_required
+def delete_application():
+    application_id = request.form["application_id"]
+    result = application.delete( application_id)
+    if (result == 0):
+        error = "This job application could not be stored in the database. Please try again."
+        return render_template('home.html', jobAddError=error)
+    data = {}
+    return redirect("/auth")
+    #return render_template('home.html', data=data, upcoming_events=upcoming_events)
+
+
+@home_route.route("/edit_application", methods=["POST"])
+# @login_required
+def edit_application():
+    company_name = request.form["companyName"]
+    location = request.form["location"]
+    job_profile = request.form["jobProfile"]
+    salary = request.form["salary"]
+    username = request.form["username"]
+    password = request.form["password"]
+    security_question = request.form["securityQuestion"]
+    security_answer = request.form["securityAnswer"]
+    notes = request.form["notes"]
+    date_applied = request.form["dateApplied"]
+    status = request.form["status"]
+    application_id = request.form["application_id"]
+    print("status", status)
+    result = application.update(company_name, location, job_profile, salary, username, password,
+                              security_question, security_answer, notes,
+                              date_applied, status, application_id)
+    if (result == 0):
+        error = "This job application could not be stored in the database. Please try again."
+        return render_template('home.html', jobAddError=error)
+    data = {}
+    return redirect("/auth")
 
 @home_route.route('/logout', methods=['GET'])
 # @login_required
