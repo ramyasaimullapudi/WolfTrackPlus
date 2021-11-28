@@ -18,6 +18,10 @@
 [![Build Status](https://app.travis-ci.com/UnnatiPrema/WolfTrackPlus.svg?branch=main)](https://app.travis-ci.com/UnnatiPrema/WolfTrackPlus)
 [![codecov](https://codecov.io/gh/ArpithaVijayakumar/WolfTrackPlus/branch/main/graph/badge.svg?token=h4F94IJMzj)](https://codecov.io/gh/ArpithaVijayakumar/WolfTrackPlus)
 
+**Versio 3 Tags:** <br/>
+[![DOI](https://zenodo.org/badge/428888852.svg)](https://zenodo.org/badge/latestdoi/428888852)
+![Python](https://img.shields.io/badge/python-v3.8+-green.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 **Goal:**<br/>
 
 One stop shop for your very own personal Job-tracker application!
