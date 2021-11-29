@@ -7,10 +7,10 @@ class sql_helper:
     def connect_database(self):
         try:
             self.connection_obj = pymysql.connect(
-                    host= 'wolftrack.c2msdsmdjmxj.us-east-2.rds.amazonaws.com', 
+                    host= 'wolftrackdb.cqxwgddfgicy.us-east-1.rds.amazonaws.com',
                     port = 3306,
-                    user = "admin", 
-                    password = "wolftrack123",
+                    user = "WolfaTrack",
+                    password = "n1rjbhPukoiFDtYV7sjJ",
                     db = "wolftrack",
                     autocommit=True
                     ) 
