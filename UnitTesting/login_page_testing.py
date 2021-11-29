@@ -54,7 +54,18 @@ class FlaskTest(unittest.TestCase):
                 sess["email"] = "test@gmail.com"
                 sess["password"] = "password"
         response = c.post("/add_new_application", data={"companyName" : "ANB", "location":"Seattle", "jobProfile": "Software Engineer", "salary":80000, "securityQuestion":"What is the name of your first dog?", "securityAnswer":"Tommy", "dateApplied" : "2021-02-01", "notes":"Check back in 2 weeks", "username": "abc@adobe.com", "password": "password1"})
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 400)
+
+
+    def test_edit_application(self):
+        with app.test_client(self) as c:
+            with c.session_transaction() as sess:
+                sess["email"] = "swetha1189@gmail.com"
+                sess["password"] = "thanks123"
+        response = c.post("/edit_application", data={"companyName" : "ANB", "location":"Seattle", "jobProfile": "Software Engineer", "salary":80000, "securityQuestion":"What is the name of your first dog?", "securityAnswer":"Tommy", "dateApplied" : "2021-02-01", "notes":"Check back in 2 weeks", "username": "abc@adobe.com", "password": "password1"})
+        self.assertEqual(response.status_code, 400)
+
+
 
 if __name__=="__main__":
      unittest.main()
