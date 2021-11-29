@@ -2,23 +2,25 @@ import smtplib, ssl
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-def s_email(company_name,location, Job_Profile,email,sec_question,sec_answer,date_applied):
+def s_email(company_name,location,job_Profile,salary,username,password,email,security_question,security_answer,notes,date_applied,status):
 
     sender_email = "wolftrackproject@gmail.com"
     receiver_email = email
-    # App Password of Gmail Account
     password = "dlafyfekdkmdfjdi"
 
-    subject = "WolfTrack - Job Added to List"
-    body = "WOLFTRACK APPLICATION \n\n" \
-       "You have applied to " + company_name + " for the job profile - " + Job_Profile + \
-       ". \nPlease find the details below: \n" \
-       "Date Applied: " + date_applied + "\n" "Location: " + location + "\n" \
-                                                                        "Security Question: " + sec_question + "\n" \
-                                                                                                               "Security Answer: " + sec_answer + "\n" \
-                                                                                                                                                  "All the best for you Application!\n" \
-                                                                                                                                                  "The WolfTrack Team."
-
+    subject = "WolfTrack++ - Job Application Added"
+    body = "WOLFTRACK++ APPLICATION \n\n" \
+           "You have applied to " + company_name + " for the job profile - " + job_Profile + \
+           ". \nPlease find the details below: \n" \
+           "Date Applied: " + date_applied + "\n" "Location: " + location + "\n" \
+                                                                            "Salary: " + salary + "\n" \
+                                                                                                  "User_name: " + username + "\n" \
+                                                                                                                         "Password: " + password + "\n" \
+                                                                                                                                                  "Security Question: " + security_question + "\n" \
+                                                                                                                                                                                         "Security Answer: " + security_answer + "\n" "Status: " + status + "\n" \
+                                                                                                                                                                                                                            "Notes: " + notes + "\n\n\n" \
+                                                                                                                                                                                                                                        "All the best for you Application!\n" \
+                                                                                                                                                                                                                                        "The WolfTrack++ Team."
     message = MIMEMultipart()
     message["From"] = sender_email
     message["To"] = receiver_email
@@ -39,4 +41,5 @@ def s_email(company_name,location, Job_Profile,email,sec_question,sec_answer,dat
     return True
 
 if __name__ == "__main__":
-    s_email('IBM','Raleigh','SDE','swetha11895@gmail.com','Favorite Sport','Badminton','11/25/2021')
+    s_email('IBM','Raleigh','SDE','1','2','3','swetha11895@gmail.com','Favorite Sport','Badminton','11/25/2021','d','d')
+
