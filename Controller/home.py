@@ -131,6 +131,7 @@ def change_status_application():
         error = "This job application could not be stored in the database. Please try again."
         return render_template('home.html', jobAddError=error)
     data = {}
+    status_change_email(application_id,session['email'],status)
     return redirect("/auth")
 
 
