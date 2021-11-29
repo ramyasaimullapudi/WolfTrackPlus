@@ -39,3 +39,38 @@ def s_email(company_name,location,job_Profile,salary,username,password,email,sec
         server.sendmail(sender_email,receiver_email,text)
 
     return True
+
+
+def status_change_email(application_id,email,status):
+
+    sender_email = "wolftrackproject@gmail.com"
+    receiver_email = email
+    password = "dlafyfekdkmdfjdi"
+
+    subject = "WolfTrack++ - Status Update"
+    body = "WOLFTRACK++ APPLICATION UPDATE \n\n" \
+           "The status has been changed to " + status + " for the job id - " + application_id + "\n\n" \
+                                                    "Please reply back to this mail if you have any queries!\n" \
+                                                                        "The WolfTrack++ Team."
+    message = MIMEMultipart()
+    message["From"] = sender_email
+    message["To"] = receiver_email
+    message["Subject"] = subject
+    message["Bcc"] = receiver_email
+
+    message.attach(MIMEText(body, "plain"))
+
+    text = message.as_string()
+
+    context = ssl.create_default_context()
+    with smtplib.SMTP_SSL("smtp.gmail.com",
+                          465,
+                          context=context) as server:
+        server.login(sender_email,password)
+        server.sendmail(sender_email,receiver_email,text)
+
+    return True
+
+
+if __name__ == "__main__":
+    status_change_email('1','swetha11895@gmail.com','In Review')
