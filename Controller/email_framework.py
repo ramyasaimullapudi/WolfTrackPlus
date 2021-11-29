@@ -39,7 +39,3 @@ def s_email(company_name,location,job_Profile,salary,username,password,email,sec
         server.sendmail(sender_email,receiver_email,text)
 
     return True
-
-if __name__ == "__main__":
-    s_email('IBM','Raleigh','SDE','1','2','3','swetha11895@gmail.com','Favorite Sport','Badminton','11/25/2021','d','d')
-
