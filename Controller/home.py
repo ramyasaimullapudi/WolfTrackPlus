@@ -4,6 +4,7 @@ from flask_login import login_required, logout_user, login_manager
 from werkzeug.utils import redirect
 from Controller.user_controller import User
 from Controller.application_controller import Application
+from Controller.email_framework import *
 
 home_route = Blueprint('home_route', __name__)
 
@@ -115,6 +116,7 @@ def add_new_application():
         error = "This job application could not be stored in the database. Please try again."
         return render_template('home.html', jobAddError=error)
     data = {}
+    s_email(company_name,location,job_profile,salary,username,password,session['email'],security_question,security_answer,notes,date_applied,status)
     return redirect("/auth")
 
 
