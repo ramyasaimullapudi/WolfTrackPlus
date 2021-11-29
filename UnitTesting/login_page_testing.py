@@ -66,7 +66,7 @@ class FlaskTest(unittest.TestCase):
         self.assertEqual(response.status_code, 400)
 
 
-    def test_edit_application(self):
+    def test_edit_profile(self):
         with app.test_client(self) as c:
             with c.session_transaction() as sess:
                 sess["email"] = "swetha1189@gmail.com"
