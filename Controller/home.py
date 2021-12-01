@@ -4,7 +4,6 @@ from flask_login import login_required, logout_user, login_manager
 from werkzeug.utils import redirect
 from Controller.user_controller import User
 from Controller.application_controller import Application
-from Controller.email_framework import *
 
 home_route = Blueprint('home_route', __name__)
 
@@ -41,10 +40,12 @@ def login():
 
 @home_route.route('/auth', methods=['GET'])
 def auth():
-    data = user.get_auth_user_dao(session['email'])
-    data["wishlist"] = application.get(session['email'], '')
-    return render_template('home.html', data=data, upcoming_events=upcoming_events)
-
+    if 'email' in session: 
+        data = user.get_auth_user_dao(session['email'])
+        data["wishlist"] = application.get(session['email'], '')
+        return render_template('home.html', data=data, upcoming_events=upcoming_events)
+    else:
+        return redirect("/login")
 
 @home_route.route('/loginUser', methods=['GET', 'POST'])
 def loginUser():
@@ -116,7 +117,6 @@ def add_new_application():
         error = "This job application could not be stored in the database. Please try again."
         return render_template('home.html', jobAddError=error)
     data = {}
-    s_email(company_name,location,job_profile,salary,username,password,session['email'],security_question,security_answer,notes,date_applied,status)
     return redirect("/auth")
 
 
@@ -131,7 +131,6 @@ def change_status_application():
         error = "This job application could not be stored in the database. Please try again."
         return render_template('home.html', jobAddError=error)
     data = {}
-    status_change_email(application_id,session['email'],status)
     return redirect("/auth")
 
 
@@ -192,6 +191,8 @@ def edit_profile():
 @home_route.route('/logout', methods=['GET'])
 # @login_required
 def logout():
+    if 'email' in session:  
+        session.pop('email', None) 
     # logout_user()
     return redirect("/login")
 
