@@ -31,10 +31,12 @@ def login():
 
 @home_route.route("/auth", methods=["GET"])
 def auth():
-    data = user.get_auth_user_dao(session["email"])
-    data["wishlist"] = application.get(session["email"], "")
-    return render_template("home.html", data=data, upcoming_events=upcoming_events)
-
+    if 'email' in session: 
+        data = user.get_auth_user_dao(session['email'])
+        data["wishlist"] = application.get(session['email'], '')
+        return render_template('home.html', data=data, upcoming_events=upcoming_events)
+    else:
+        return redirect("/login")
 
 @home_route.route("/loginUser", methods=["GET", "POST"])
 def loginUser():
@@ -219,6 +221,8 @@ def edit_profile():
 @home_route.route("/logout", methods=["GET"])
 # @login_required
 def logout():
+    if 'email' in session:  
+        session.pop('email', None) 
     # logout_user()
     return redirect("/login")
 
