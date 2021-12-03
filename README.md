@@ -18,10 +18,19 @@
 [![Build Status](https://app.travis-ci.com/UnnatiPrema/WolfTrackPlus.svg?branch=main)](https://app.travis-ci.com/UnnatiPrema/WolfTrackPlus)
 [![codecov](https://codecov.io/gh/ArpithaVijayakumar/WolfTrackPlus/branch/main/graph/badge.svg?token=h4F94IJMzj)](https://codecov.io/gh/ArpithaVijayakumar/WolfTrackPlus)
 
-**Versio 3 Tags:** <br/>
+**Version 3 Tags:** <br/>
+
 [![DOI](https://zenodo.org/badge/428888852.svg)](https://zenodo.org/badge/latestdoi/428888852)
 ![Python](https://img.shields.io/badge/python-v3.8+-green.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://github.com/ramyasaimullapudi/WolfTrackPlus/workflows/Build%20Status/badge.svg)](https://github.com/ramyasaimullapudi/WolfTrackPlus/actions)
+[![Codestyle: Black](https://github.com/ramyasaimullapudi/WolfTrackPlus/workflows/Black%20Format%20Checker/badge.svg)](https://github.com/ramyasaimullapudi/WolfTrackPlus/actions)
+
+![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/ramyasaimullapudi/WolfTrackPlus)
+![GitHub open issues](https://img.shields.io/github/issues/ramyasaimullapudi/WolfTrackPlus)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/ramyasaimullapudi/WolfTrackPlus)
+![GitHub all downloads](https://img.shields.io/github/downloads/ramyasaimullapudi/WolfTrackPlus/total)
+
 **Goal:**<br/>
 
 One stop shop for your very own personal Job-tracker application!
