@@ -10,7 +10,7 @@ from flask_login import login_required
 
 class User(Resource):
     def __init__(self):
-        self.headers = {'Content-Type': 'text/html'}
+        self.headers = {"Content-Type": "text/html"}
         self.user = user_dao()
 
     # @login_required
@@ -29,13 +29,13 @@ class User(Resource):
     def put(self):
         self.user.update_details()
         some_json = request.get_json()
-        return {'you sent': some_json}, 200
+        return {"you sent": some_json}, 200
 
     # @login_required
     def delete(self):
         self.user.delete_user()
         some_json = request.get_json()
-        return {'you sent': some_json}, 200
+        return {"you sent": some_json}, 200
 
     def edit_profile(self, user_id, name, gender, location):
         return self.user.update_details(user_id, name, gender, location)
