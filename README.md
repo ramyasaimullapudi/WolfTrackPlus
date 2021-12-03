@@ -127,11 +127,11 @@ https://user-images.githubusercontent.com/17769434/140458596-e99de88a-a3ca-4965-
 
 - **Sign Up Page**
   - User Interface to signup to the app
-![signup](https://user-images.githubusercontent.com/42767118/135380001-4bc1c1cf-e021-4e90-a11d-7982846f6122.png)
+![signup](![image](https://user-images.githubusercontent.com/51504486/144654316-077840c1-7e4a-471f-91f1-f3826778b312.png))
 
 - **Login Page**
   - User Interface to login to the Wolftrack app. After successful login, user will be redirected to the Dashboard page
-![login](https://user-images.githubusercontent.com/42767118/135379994-8db87d4f-ef98-4005-97ea-b6d56cd655ec.png)
+![login](![image](https://user-images.githubusercontent.com/51504486/144654255-9a931fab-a92a-4341-90b4-0a2293579e88.png))
 
 - **Dashboard** 
   - The 4 section (Wishlist, Applied, In-process, Offers) categorizes all the applications based on the current status and shows 3 applications on the home page. The tool allows the user to create new applications by clicking on Add New button on each section while the 'View All' allows the user to list all the applications.
