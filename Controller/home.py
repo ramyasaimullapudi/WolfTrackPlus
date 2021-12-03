@@ -6,40 +6,30 @@ from Controller.user_controller import User
 from Controller.application_controller import Application
 from Controller.email_framework import *
 
-home_route = Blueprint('home_route', __name__)
+home_route = Blueprint("home_route", __name__)
 
 user = User()
 application = Application()
 # login = login_manager.LoginManager(application)
 
 upcoming_events = [
-    {"duedate": "10th Dec, 2021",
-     "company": "Apple"
-     },
-    {"duedate": "12th Dec, 2021",
-     "company": "Microsoft"
-     },
-    {"duedate": "15th Dec, 2021",
-     "company": "Amazon"
-     },
-    {"duedate": "21st Dec, 2021",
-     "company": "Amazon"
-     },
-    {"duedate": "21st Dec, 2021",
-     "company": "Amazon"
-     }
+    {"duedate": "10th Dec, 2021", "company": "Apple"},
+    {"duedate": "12th Dec, 2021", "company": "Microsoft"},
+    {"duedate": "15th Dec, 2021", "company": "Amazon"},
+    {"duedate": "21st Dec, 2021", "company": "Amazon"},
+    {"duedate": "21st Dec, 2021", "company": "Amazon"},
 ]
 
 
-@home_route.route('/', methods=['GET'])
+@home_route.route("/", methods=["GET"])
 # def home():
 #     return redirect("/auth")
-@home_route.route('/login', methods=['GET', 'POST'])
+@home_route.route("/login", methods=["GET", "POST"])
 def login():
-    return render_template('login.html', loginError="")
+    return render_template("login.html", loginError="")
 
 
-@home_route.route('/auth', methods=['GET'])
+@home_route.route("/auth", methods=["GET"])
 def auth():
     if 'email' in session: 
         data = user.get_auth_user_dao(session['email'])
@@ -48,52 +38,54 @@ def auth():
     else:
         return redirect("/login")
 
-@home_route.route('/loginUser', methods=['GET', 'POST'])
+@home_route.route("/loginUser", methods=["GET", "POST"])
 def loginUser():
-    session['email'] = request.form["username"]
+    session["email"] = request.form["username"]
     password = request.form["password"]
-    result = user.get(session['email'], password)
+    result = user.get(session["email"], password)
     print(result)
     error = ""
-    if (result == 0):
+    if result == 0:
         error = "Email does not exits. Please enter a valid email."
-        return render_template('login.html', loginError=error)
-    elif (result == 2):
+        return render_template("login.html", loginError=error)
+    elif result == 2:
         error = "Password incorrect."
-        return render_template('login.html', loginError=error)
+        return render_template("login.html", loginError=error)
     else:
         return redirect("/auth")
         # return render_template('home.html', data=result, upcoming_events=upcoming_events)
 
 
-@home_route.route('/signup', methods=['POST'])
+@home_route.route("/signup", methods=["POST"])
 def signup():
     name = request.form["name"]
-    session['email'] = request.form["email"]
+    session["email"] = request.form["email"]
     password = request.form["password"]
     # result = user.post(name, session['email'], password)
     print(name)
     gender = request.form["gender"]
     location = request.form["location"]
-    result = user.post(name, session['email'], password, gender, location)
-    if (result == 0):
+    result = user.post(name, session["email"], password, gender, location)
+    if result == 0:
         error = "This email already exists. Please try with different email"
-        return render_template('login.html', emailError=error)
+        return render_template("login.html", emailError=error)
     data = {}
     data["full_name"] = name
-    return render_template('home.html', data=data, upcoming_events=upcoming_events)
+    return render_template("home.html", data=data, upcoming_events=upcoming_events)
 
 
-@home_route.route('/view', methods=['GET'])
+@home_route.route("/view", methods=["GET"])
 # @login_required
 def view():
-    application_category = request.args.get('show').upper()
+    application_category = request.args.get("show").upper()
 
     result_data = application.get(session["email"], application_category)
 
     print(result_data)
 
-    return render_template('view_list.html', data=result_data, upcoming_events=upcoming_events)
+    return render_template(
+        "view_list.html", data=result_data, upcoming_events=upcoming_events
+    )
 
 
 @home_route.route("/add_new_application", methods=["GET", "POST"])
@@ -111,14 +103,38 @@ def add_new_application():
     date_applied = request.form["dateApplied"]
     status = request.form["status"]
     print("status", status)
-    result = application.post(session['email'], company_name, location, job_profile, salary, username, password,
-                              security_question, security_answer, notes,
-                              date_applied, status)
-    if (result == 0):
+    result = application.post(
+        session["email"],
+        company_name,
+        location,
+        job_profile,
+        salary,
+        username,
+        password,
+        security_question,
+        security_answer,
+        notes,
+        date_applied,
+        status,
+    )
+    if result == 0:
         error = "This job application could not be stored in the database. Please try again."
-        return render_template('home.html', jobAddError=error)
+        return render_template("home.html", jobAddError=error)
     data = {}
-    s_email(company_name,location,job_profile,salary,username,password,session['email'],security_question,security_answer,notes,date_applied,status)
+    s_email(
+        company_name,
+        location,
+        job_profile,
+        salary,
+        username,
+        password,
+        session["email"],
+        security_question,
+        security_answer,
+        notes,
+        date_applied,
+        status,
+    )
     return redirect("/auth")
 
 
@@ -129,11 +145,11 @@ def change_status_application():
     application_id = request.form["application_id"]
     print("status", status)
     result = application.change_status(application_id, status)
-    if (result == 0):
+    if result == 0:
         error = "This job application could not be stored in the database. Please try again."
-        return render_template('home.html', jobAddError=error)
+        return render_template("home.html", jobAddError=error)
     data = {}
-    status_change_email(application_id,session['email'],status)
+    status_change_email(application_id, session["email"], status)
     return redirect("/auth")
 
 
@@ -142,9 +158,9 @@ def change_status_application():
 def delete_application():
     application_id = request.form["application_id"]
     result = application.delete(application_id)
-    if (result == 0):
+    if result == 0:
         error = "This job application could not be stored in the database. Please try again."
-        return render_template('home.html', jobAddError=error)
+        return render_template("home.html", jobAddError=error)
     data = {}
     return redirect("/auth")
     # return render_template('home.html', data=data, upcoming_events=upcoming_events)
@@ -166,12 +182,23 @@ def edit_application():
     status = request.form["status"]
     application_id = request.form["application_id"]
     print("status", status)
-    result = application.update(company_name, location, job_profile, salary, username, password,
-                                security_question, security_answer, notes,
-                                date_applied, status, application_id)
-    if (result == 0):
+    result = application.update(
+        company_name,
+        location,
+        job_profile,
+        salary,
+        username,
+        password,
+        security_question,
+        security_answer,
+        notes,
+        date_applied,
+        status,
+        application_id,
+    )
+    if result == 0:
         error = "This job application could not be stored in the database. Please try again."
-        return render_template('home.html', jobAddError=error)
+        return render_template("home.html", jobAddError=error)
     data = {}
     return redirect("/auth")
 
@@ -184,20 +211,21 @@ def edit_profile():
     location = request.form["location"]
     user_id = request.form["user_id"]
     result = user.edit_profile(user_id, name, gender, location)
-    if (result == 0):
+    if result == 0:
         error = "This user not found in the database. Please try again."
-        return render_template('home.html', jobAddError=error)
+        return render_template("home.html", jobAddError=error)
     data = {}
     return redirect("/auth")
 
 
-@home_route.route('/logout', methods=['GET'])
+@home_route.route("/logout", methods=["GET"])
 # @login_required
 def logout():
     if 'email' in session:  
         session.pop('email', None) 
     # logout_user()
     return redirect("/login")
+
 
 # if __name__ == '__main__':
 #     app.run(debug=True)
