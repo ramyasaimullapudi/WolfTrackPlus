@@ -71,6 +71,7 @@ def add_new_application():
     |
     """
 
+
 def change_status_application():
     """
     automatic update of any change in status of the application is updated here.

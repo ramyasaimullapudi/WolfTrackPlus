@@ -1,8 +1,9 @@
-class FlaskTest():
+class FlaskTest:
     """
     It is the subject body to write all unit testcases for login page.
     It is defined for running flask tests.
     """
+
 
 def test_(self):
     """
@@ -10,10 +11,12 @@ def test_(self):
 
     """
 
+
 def test_index_content(self):
-     """
-     this checks if content returned is application/json
-     """
+    """
+    this checks if content returned is application/json
+    """
+
 
 def test_index_data(self):
     """

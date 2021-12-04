@@ -1,15 +1,15 @@
-class Application():
+class Application:
     """
     This class is a controller for the application database. It inherits properties from flask_restful.Resource
 
     """
 
+
 def __init__(self):
     """
     Default constructor that adds headers and application dao object on creation.
     """
-    self.headers = {"Content-Type": "text/html"}
-    self.application = "creates a DAO object --> application_dao()"
+
 
 def get(self, email, application_category):
     """
@@ -19,7 +19,22 @@ def get(self, email, application_category):
     @return: a string indicating the stock information and a string indicating cost of the product
     """
 
-def post(self,email, company_name,location, job_profile,salary,username,password,security_question,security_answer,notes,date_applied,status,):
+
+def post(
+    self,
+    email,
+    company_name,
+    location,
+    job_profile,
+    salary,
+    username,
+    password,
+    security_question,
+    security_answer,
+    notes,
+    date_applied,
+    status,
+):
     """
     Obtains stock information from the given url.
 
@@ -27,15 +42,32 @@ def post(self,email, company_name,location, job_profile,salary,username,password
     :return: a string indicating the stock information and a string indicating cost of the product
     """
 
+
 def change_status(self, status, application_id):
     """
     Changes the state of a given application_id to given status
     """
 
-def update(self,email, company_name,location, job_profile,salary,username,password,security_question,security_answer,notes,date_applied,status,):
+
+def update(
+    self,
+    email,
+    company_name,
+    location,
+    job_profile,
+    salary,
+    username,
+    password,
+    security_question,
+    security_answer,
+    notes,
+    date_applied,
+    status,
+):
     """
     Updates any values changed in the profile and application parameters in website and database.
     """
+
 
 def delete(self, application_id):
     """

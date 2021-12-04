@@ -1,4 +1,4 @@
-class FlaskTest():
+class FlaskTest:
     """
     It is the subject body to write all unit testcases for login page
     """
