@@ -30,6 +30,7 @@
 ![GitHub open issues](https://img.shields.io/github/issues/ramyasaimullapudi/WolfTrackPlus)
 ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/ramyasaimullapudi/WolfTrackPlus)
 ![GitHub all downloads](https://img.shields.io/github/downloads/ramyasaimullapudi/WolfTrackPlus/total)
+[![codecov](https://codecov.io/gh/ramyasaimullapudi/WolfTrackPlus/branch/main/graph/badge.svg?token=Sfdls5yVnN)](https://codecov.io/gh/ramyasaimullapudi/WolfTrackPlus)
 
 **Goal:**<br/>
 
