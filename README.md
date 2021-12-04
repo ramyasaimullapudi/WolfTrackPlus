@@ -193,7 +193,7 @@ sender – wolftrackproject@gmail.com
 receiver – The email address of the receiver
 ![image](https://user-images.githubusercontent.com/19464321/144719899-3a51587b-631d-454c-9dac-fab21cc6a387.png)
 
-![image](https://user-images.githubusercontent.com/19464321/144702536-5cbcd7fa-236a-422d-b933-63d9d8c1f3c0.jpeg)
+![image](https://user-images.githubusercontent.com/19464321/144720031-e6f3041c-dc6f-4040-aa37-d8644d4a154a.png)
 
 
 ### Phase 1:
