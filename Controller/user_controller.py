@@ -13,7 +13,7 @@ class User(Resource):
         This class is a controller for the user database. It inherits properties from flask_restful.Resource
     """
     def __init__(self):
-        self.headers = {'Content-Type': 'text/html'}
+        self.headers = {"Content-Type": "text/html"}
         self.user = user_dao()
 
     # @login_required
@@ -56,7 +56,7 @@ class User(Resource):
         """
         self.user.update_details()
         some_json = request.get_json()
-        return {'you sent': some_json}, 200
+        return {"you sent": some_json}, 200
 
     # @login_required
     def delete(self):
@@ -66,7 +66,7 @@ class User(Resource):
         """
         self.user.delete_user()
         some_json = request.get_json()
-        return {'you sent': some_json}, 200
+        return {"you sent": some_json}, 200
 
     def edit_profile(self, user_id, name, gender, location):
         """

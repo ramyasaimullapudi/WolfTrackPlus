@@ -9,7 +9,7 @@ class Application(Resource):
     This class is a controller for the application database. It inherits properties from flask_restful.Resource
     """
     def __init__(self):
-        self.headers = {'Content-Type': 'text/html'}
+        self.headers = {"Content-Type": "text/html"}
         self.application = application_dao()
 
     # @login_required

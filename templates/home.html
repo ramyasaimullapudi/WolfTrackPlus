@@ -8,23 +8,22 @@
         <div class="card-body">
             <h5 class="card-title">Wish List</h5>
         </div>
-        <ul class="list-group list-group-flush">
+        <ul class="list-group list-group-flush" style="width: 100%; height: 150px; overflow: auto">
             {% for item in data.wishlist %}
             {% if item.1 == 'TO_DO' %}
             <div class="list-group-item"
-                 style="background-color: #34e8eb; border: 2px solid black; border-radius: 20px; margin: 5px; color: black; font-weight: bold; box-shadow: 5px 10px; ;">
+                style="background-color: #34e8eb; border: 2px solid black; border-radius: 20px; margin: 5px; color: black; font-weight: bold; box-shadow: 5px 10px; ;">
                 <span>{{ item.0 }}</span>
                 <a href="#" class="btn btn-info" data-toggle="modal" data-target="#change_status_wishlist{{item.3}}"><i
                         class="material-icons">sync_alt</i></a>
                 <div class="modal fade new-application-modal" id="change_status_wishlist{{item.3}}" tabindex="-1"
-                     role="dialog"
-                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Change Status of the Application</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
+                                    aria-label="Close"></button>
                             </div>
                             <form action="/change_status_application" method="POST" id="change_status_application">
 
@@ -40,8 +39,7 @@
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" id="application_id" name="application_id"
-                                               type="hidden"
-                                               value="{{item.3}}">
+                                            type="hidden" value="{{item.3}}">
                                     </div>
 
                                     <div class="modal-footer">
@@ -57,12 +55,12 @@
 
                 <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#edit_application{{item.3}}"><i
                         class="material-icons">edit</i></a>
-                <div class="modal fade new-application-modal" id="edit_application{{item.3}}" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade new-application-modal" id="edit_application{{item.3}}" tabindex="-1"
+                    role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">New Job Application</h5>
+                                <h5 class="modal-title" id="exampleModalLongTitle">Edit Job Application</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -72,68 +70,63 @@
                                     <div class="form-group">
                                         <label for="exampleInputName">Company Name</label>
                                         <input type="text" name="companyName" class="form-control" id="exampleInputName"
-                                               placeholder="Enter Company Name"
-                                               required="required" value="{{item.0}}">
+                                            placeholder="Enter Company Name" required="required" value="{{item.0}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="Location">Location</label>
                                         <input type="text" name="location" class="form-control" id="Location"
-                                               placeholder="Enter Location" required="required" value="{{item.4}}">
+                                            placeholder="Enter Location" required="required" value="{{item.4}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="JobProfile">Job Profile</label>
                                         <input type="text" name="jobProfile" class="form-control" id="JobProfile"
-                                               placeholder="Enter Job Profile" required="required" value="{{item.5}}">
+                                            placeholder="Enter Job Profile" required="required" value="{{item.5}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="Salary">Salary</label>
                                         <input type="text" name="salary" class="form-control" id="Salary"
-                                               placeholder="Enter Salary"
-                                               required="required" value="{{item.6}}">
+                                            placeholder="Enter Salary" required="required" value="{{item.6}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="Username">Username</label>
                                         <input type="text" name="username" class="form-control" id="Username"
-                                               placeholder="Enter Username">
+                                            placeholder="Enter Username">
                                     </div>
                                     <div class="form-group">
                                         <label for="Password">Password</label>
                                         <input type="text" name="password" class="form-control" id="Password"
-                                               placeholder="Enter Password">
+                                            placeholder="Enter Password">
                                     </div>
                                     <div class="form-group">
                                         <label for="SecurityQuestion">Security Question</label>
                                         <input type="text" name="securityQuestion" class="form-control"
-                                               id="SecurityQuestion"
-                                               placeholder="Enter Security Question">
+                                            id="SecurityQuestion" placeholder="Enter Security Question">
                                     </div>
                                     <div class="form-group">
                                         <label for="SecurityAnswer">Security Answer</label>
                                         <input type="text" name="securityAnswer" class="form-control"
-                                               id="SecurityAnswer"
-                                               placeholder="Enter Security Answer">
+                                            id="SecurityAnswer" placeholder="Enter Security Answer">
                                     </div>
                                     <div class="form-group">
                                         <label for="Notes">Notes</label>
                                         <textarea class="form-control" id="Notes" name="notes"
-                                                  placeholder="Save links and other information here">{{item.7}}</textarea>
+                                            placeholder="Save links and other information here">{{item.7}}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-date-input" class="col-3 col-form-label">Date
                                             Applied</label>
                                         <div class="col-10">
                                             <input class="form-control" name="dateApplied" type="date"
-                                                   value="{{item.2}}"
-                                                   id="example-date-input">
+                                                value="{{item.2}}" id="example-date-input">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" id="status" name="status" type="hidden"
-                                               value="{{item.1}}">
+                                            value="{{item.1}}">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" id="application_id" name="application_id" type="hidden"
-                                               value="{{item.3}}">
+                                        <input class="form-control" id="application_id" name="application_id"
+                                            type="hidden" value="{{item.3}}">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
@@ -150,14 +143,13 @@
                 <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete_application{{item.3}}"><i
                         class="material-icons">delete</i></a>
                 <div class="modal fade new-application-modal" id="delete_application{{item.3}}" tabindex="-1"
-                     role="dialog"
-                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Delete Application</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
+                                    aria-label="Close"></button>
                             </div>
                             <form action="/delete_application" method="POST" id="delete_application">
 
@@ -165,8 +157,7 @@
                                     <div>Are you sure you want to delete the application {{item.0}}</div>
                                     <div class="form-group">
                                         <input class="form-control" id="application_id" name="application_id"
-                                               type="hidden"
-                                               value="{{item.3}}">
+                                            type="hidden" value="{{item.3}}">
                                     </div>
 
                                     <div class="modal-footer">
@@ -195,23 +186,22 @@
         <div class="card-body">
             <h5 class="card-title">In Process</h5>
         </div>
-        <ul class="list-group list-group-flush">
+        <ul class="list-group list-group-flush" style="width: 100%; height: 150px; overflow: auto">
             {% for item in data.wishlist %}
             {% if item.1 == 'IN_PROCESS' %}
-                        <div class="list-group-item"
-                 style="background-color: #34e8eb; border: 2px solid black; border-radius: 20px; margin: 5px; color: black; font-weight: bold; box-shadow: 5px 10px; ;">
+            <div class="list-group-item"
+                style="background-color: #34e8eb; border: 2px solid black; border-radius: 20px; margin: 5px; color: black; font-weight: bold; box-shadow: 5px 10px; ;">
                 <span>{{ item.0 }}</span>
                 <a href="#" class="btn btn-info" data-toggle="modal" data-target="#change_status_wishlist{{item.3}}"><i
                         class="material-icons">sync_alt</i></a>
                 <div class="modal fade new-application-modal" id="change_status_wishlist{{item.3}}" tabindex="-1"
-                     role="dialog"
-                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Change Status of the Application</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
+                                    aria-label="Close"></button>
                             </div>
                             <form action="/change_status_application" method="POST" id="change_status_application">
 
@@ -227,8 +217,7 @@
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" id="application_id" name="application_id"
-                                               type="hidden"
-                                               value="{{item.3}}">
+                                            type="hidden" value="{{item.3}}">
                                     </div>
 
                                     <div class="modal-footer">
@@ -244,12 +233,12 @@
 
                 <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#edit_application{{item.3}}"><i
                         class="material-icons">edit</i></a>
-                <div class="modal fade new-application-modal" id="edit_application{{item.3}}" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade new-application-modal" id="edit_application{{item.3}}" tabindex="-1"
+                    role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">New Job Application</h5>
+                                <h5 class="modal-title" id="exampleModalLongTitle">Edit Job Application</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -259,68 +248,63 @@
                                     <div class="form-group">
                                         <label for="exampleInputName">Company Name</label>
                                         <input type="text" name="companyName" class="form-control" id="exampleInputName"
-                                               placeholder="Enter Company Name"
-                                               required="required" value="{{item.0}}">
+                                            placeholder="Enter Company Name" required="required" value="{{item.0}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="Location">Location</label>
                                         <input type="text" name="location" class="form-control" id="Location"
-                                               placeholder="Enter Location" required="required" value="{{item.4}}">
+                                            placeholder="Enter Location" required="required" value="{{item.4}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="JobProfile">Job Profile</label>
                                         <input type="text" name="jobProfile" class="form-control" id="JobProfile"
-                                               placeholder="Enter Job Profile" required="required" value="{{item.5}}">
+                                            placeholder="Enter Job Profile" required="required" value="{{item.5}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="Salary">Salary</label>
                                         <input type="text" name="salary" class="form-control" id="Salary"
-                                               placeholder="Enter Salary"
-                                               required="required" value="{{item.6}}">
+                                            placeholder="Enter Salary" required="required" value="{{item.6}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="Username">Username</label>
                                         <input type="text" name="username" class="form-control" id="Username"
-                                               placeholder="Enter Username">
+                                            placeholder="Enter Username">
                                     </div>
                                     <div class="form-group">
                                         <label for="Password">Password</label>
                                         <input type="text" name="password" class="form-control" id="Password"
-                                               placeholder="Enter Password">
+                                            placeholder="Enter Password">
                                     </div>
                                     <div class="form-group">
                                         <label for="SecurityQuestion">Security Question</label>
                                         <input type="text" name="securityQuestion" class="form-control"
-                                               id="SecurityQuestion"
-                                               placeholder="Enter Security Question">
+                                            id="SecurityQuestion" placeholder="Enter Security Question">
                                     </div>
                                     <div class="form-group">
                                         <label for="SecurityAnswer">Security Answer</label>
                                         <input type="text" name="securityAnswer" class="form-control"
-                                               id="SecurityAnswer"
-                                               placeholder="Enter Security Answer">
+                                            id="SecurityAnswer" placeholder="Enter Security Answer">
                                     </div>
                                     <div class="form-group">
                                         <label for="Notes">Notes</label>
                                         <textarea class="form-control" id="Notes" name="notes"
-                                                  placeholder="Save links and other information here">{{item.7}}</textarea>
+                                            placeholder="Save links and other information here">{{item.7}}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-date-input" class="col-3 col-form-label">Date
                                             Applied</label>
                                         <div class="col-10">
                                             <input class="form-control" name="dateApplied" type="date"
-                                                   value="{{item.2}}"
-                                                   id="example-date-input">
+                                                value="{{item.2}}" id="example-date-input">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" id="status" name="status" type="hidden"
-                                               value="{{item.1}}">
+                                            value="{{item.1}}">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" id="application_id" name="application_id" type="hidden"
-                                               value="{{item.3}}">
+                                        <input class="form-control" id="application_id" name="application_id"
+                                            type="hidden" value="{{item.3}}">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
@@ -337,14 +321,13 @@
                 <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete_application{{item.3}}"><i
                         class="material-icons">delete</i></a>
                 <div class="modal fade new-application-modal" id="delete_application{{item.3}}" tabindex="-1"
-                     role="dialog"
-                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Delete Application</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
+                                    aria-label="Close"></button>
                             </div>
                             <form action="/delete_application" method="POST" id="delete_application">
 
@@ -352,8 +335,7 @@
                                     <div>Are you sure you want to delete the application {{item.0}}</div>
                                     <div class="form-group">
                                         <input class="form-control" id="application_id" name="application_id"
-                                               type="hidden"
-                                               value="{{item.3}}">
+                                            type="hidden" value="{{item.3}}">
                                     </div>
 
                                     <div class="modal-footer">
@@ -384,23 +366,22 @@
         <div class="card-body">
             <h5 class="card-title">Applied</h5>
         </div>
-        <ul class="list-group list-group-flush">
+        <ul class="list-group list-group-flush" style="width: 100%; height: 150px; overflow: auto">
             {% for item in data.wishlist %}
             {% if item.1 == 'APPLIED' %}
             <div class="list-group-item"
-                 style="background-color: #34e8eb; border: 2px solid black; border-radius: 20px; margin: 5px; color: black; font-weight: bold; box-shadow: 5px 10px; ;">
+                style="background-color: #34e8eb; border: 2px solid black; border-radius: 20px; margin: 5px; color: black; font-weight: bold; box-shadow: 5px 10px; ;">
                 <span>{{ item.0 }}</span>
                 <a href="#" class="btn btn-info" data-toggle="modal" data-target="#change_status_wishlist{{item.3}}"><i
                         class="material-icons">sync_alt</i></a>
                 <div class="modal fade new-application-modal" id="change_status_wishlist{{item.3}}" tabindex="-1"
-                     role="dialog"
-                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Change Status of the Application</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
+                                    aria-label="Close"></button>
                             </div>
                             <form action="/change_status_application" method="POST" id="change_status_application">
 
@@ -416,8 +397,7 @@
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" id="application_id" name="application_id"
-                                               type="hidden"
-                                               value="{{item.3}}">
+                                            type="hidden" value="{{item.3}}">
                                     </div>
 
                                     <div class="modal-footer">
@@ -433,12 +413,12 @@
 
                 <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#edit_application{{item.3}}"><i
                         class="material-icons">edit</i></a>
-                <div class="modal fade new-application-modal" id="edit_application{{item.3}}" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade new-application-modal" id="edit_application{{item.3}}" tabindex="-1"
+                    role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">New Job Application</h5>
+                                <h5 class="modal-title" id="exampleModalLongTitle">Edit Job Application</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -448,68 +428,63 @@
                                     <div class="form-group">
                                         <label for="exampleInputName">Company Name</label>
                                         <input type="text" name="companyName" class="form-control" id="exampleInputName"
-                                               placeholder="Enter Company Name"
-                                               required="required" value="{{item.0}}">
+                                            placeholder="Enter Company Name" required="required" value="{{item.0}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="Location">Location</label>
                                         <input type="text" name="location" class="form-control" id="Location"
-                                               placeholder="Enter Location" required="required" value="{{item.4}}">
+                                            placeholder="Enter Location" required="required" value="{{item.4}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="JobProfile">Job Profile</label>
                                         <input type="text" name="jobProfile" class="form-control" id="JobProfile"
-                                               placeholder="Enter Job Profile" required="required" value="{{item.5}}">
+                                            placeholder="Enter Job Profile" required="required" value="{{item.5}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="Salary">Salary</label>
                                         <input type="text" name="salary" class="form-control" id="Salary"
-                                               placeholder="Enter Salary"
-                                               required="required" value="{{item.6}}">
+                                            placeholder="Enter Salary" required="required" value="{{item.6}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="Username">Username</label>
                                         <input type="text" name="username" class="form-control" id="Username"
-                                               placeholder="Enter Username">
+                                            placeholder="Enter Username">
                                     </div>
                                     <div class="form-group">
                                         <label for="Password">Password</label>
                                         <input type="text" name="password" class="form-control" id="Password"
-                                               placeholder="Enter Password">
+                                            placeholder="Enter Password">
                                     </div>
                                     <div class="form-group">
                                         <label for="SecurityQuestion">Security Question</label>
                                         <input type="text" name="securityQuestion" class="form-control"
-                                               id="SecurityQuestion"
-                                               placeholder="Enter Security Question">
+                                            id="SecurityQuestion" placeholder="Enter Security Question">
                                     </div>
                                     <div class="form-group">
                                         <label for="SecurityAnswer">Security Answer</label>
                                         <input type="text" name="securityAnswer" class="form-control"
-                                               id="SecurityAnswer"
-                                               placeholder="Enter Security Answer">
+                                            id="SecurityAnswer" placeholder="Enter Security Answer">
                                     </div>
                                     <div class="form-group">
                                         <label for="Notes">Notes</label>
                                         <textarea class="form-control" id="Notes" name="notes"
-                                                  placeholder="Save links and other information here">{{item.7}}</textarea>
+                                            placeholder="Save links and other information here">{{item.7}}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-date-input" class="col-3 col-form-label">Date
                                             Applied</label>
                                         <div class="col-10">
                                             <input class="form-control" name="dateApplied" type="date"
-                                                   value="{{item.2}}"
-                                                   id="example-date-input">
+                                                value="{{item.2}}" id="example-date-input">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" id="status" name="status" type="hidden"
-                                               value="{{item.1}}">
+                                            value="{{item.1}}">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" id="application_id" name="application_id" type="hidden"
-                                               value="{{item.3}}">
+                                        <input class="form-control" id="application_id" name="application_id"
+                                            type="hidden" value="{{item.3}}">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
@@ -526,14 +501,13 @@
                 <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete_application{{item.3}}"><i
                         class="material-icons">delete</i></a>
                 <div class="modal fade new-application-modal" id="delete_application{{item.3}}" tabindex="-1"
-                     role="dialog"
-                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Delete Application</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
+                                    aria-label="Close"></button>
                             </div>
                             <form action="/delete_application" method="POST" id="delete_application">
 
@@ -541,8 +515,7 @@
                                     <div>Are you sure you want to delete the application {{item.0}}</div>
                                     <div class="form-group">
                                         <input class="form-control" id="application_id" name="application_id"
-                                               type="hidden"
-                                               value="{{item.3}}">
+                                            type="hidden" value="{{item.3}}">
                                     </div>
 
                                     <div class="modal-footer">
@@ -572,23 +545,22 @@
         <div class="card-body">
             <h5 class="card-title">Offers</h5>
         </div>
-        <ul class="list-group list-group-flush">
+        <ul class="list-group list-group-flush" style="width: 100%; height: 150px; overflow: auto">
             {% for item in data.wishlist %}
             {% if item.1 == 'ACCEPTED' %}
             <div class="list-group-item"
-                 style="background-color: #34e8eb; border: 2px solid black; border-radius: 20px; margin: 5px; color: black; font-weight: bold; box-shadow: 5px 10px; ;">
+                style="background-color: #34e8eb; border: 2px solid black; border-radius: 20px; margin: 5px; color: black; font-weight: bold; box-shadow: 5px 10px; ;">
                 <span>{{ item.0 }}</span>
                 <a href="#" class="btn btn-info" data-toggle="modal" data-target="#change_status_wishlist{{item.3}}"><i
                         class="material-icons">sync_alt</i></a>
                 <div class="modal fade new-application-modal" id="change_status_wishlist{{item.3}}" tabindex="-1"
-                     role="dialog"
-                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Change Status of the Application</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
+                                    aria-label="Close"></button>
                             </div>
                             <form action="/change_status_application" method="POST" id="change_status_application">
 
@@ -604,8 +576,7 @@
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" id="application_id" name="application_id"
-                                               type="hidden"
-                                               value="{{item.3}}">
+                                            type="hidden" value="{{item.3}}">
                                     </div>
 
                                     <div class="modal-footer">
@@ -621,12 +592,12 @@
 
                 <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#edit_application{{item.3}}"><i
                         class="material-icons">edit</i></a>
-                <div class="modal fade new-application-modal" id="edit_application{{item.3}}" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade new-application-modal" id="edit_application{{item.3}}" tabindex="-1"
+                    role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">New Job Application</h5>
+                                <h5 class="modal-title" id="exampleModalLongTitle">Edit Job Application</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -636,68 +607,63 @@
                                     <div class="form-group">
                                         <label for="exampleInputName">Company Name</label>
                                         <input type="text" name="companyName" class="form-control" id="exampleInputName"
-                                               placeholder="Enter Company Name"
-                                               required="required" value="{{item.0}}">
+                                            placeholder="Enter Company Name" required="required" value="{{item.0}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="Location">Location</label>
                                         <input type="text" name="location" class="form-control" id="Location"
-                                               placeholder="Enter Location" required="required" value="{{item.4}}">
+                                            placeholder="Enter Location" required="required" value="{{item.4}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="JobProfile">Job Profile</label>
                                         <input type="text" name="jobProfile" class="form-control" id="JobProfile"
-                                               placeholder="Enter Job Profile" required="required" value="{{item.5}}">
+                                            placeholder="Enter Job Profile" required="required" value="{{item.5}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="Salary">Salary</label>
                                         <input type="text" name="salary" class="form-control" id="Salary"
-                                               placeholder="Enter Salary"
-                                               required="required" value="{{item.6}}">
+                                            placeholder="Enter Salary" required="required" value="{{item.6}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="Username">Username</label>
                                         <input type="text" name="username" class="form-control" id="Username"
-                                               placeholder="Enter Username">
+                                            placeholder="Enter Username">
                                     </div>
                                     <div class="form-group">
                                         <label for="Password">Password</label>
                                         <input type="text" name="password" class="form-control" id="Password"
-                                               placeholder="Enter Password">
+                                            placeholder="Enter Password">
                                     </div>
                                     <div class="form-group">
                                         <label for="SecurityQuestion">Security Question</label>
                                         <input type="text" name="securityQuestion" class="form-control"
-                                               id="SecurityQuestion"
-                                               placeholder="Enter Security Question">
+                                            id="SecurityQuestion" placeholder="Enter Security Question">
                                     </div>
                                     <div class="form-group">
                                         <label for="SecurityAnswer">Security Answer</label>
                                         <input type="text" name="securityAnswer" class="form-control"
-                                               id="SecurityAnswer"
-                                               placeholder="Enter Security Answer">
+                                            id="SecurityAnswer" placeholder="Enter Security Answer">
                                     </div>
                                     <div class="form-group">
                                         <label for="Notes">Notes</label>
                                         <textarea class="form-control" id="Notes" name="notes"
-                                                  placeholder="Save links and other information here">{{item.7}}</textarea>
+                                            placeholder="Save links and other information here">{{item.7}}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="example-date-input" class="col-3 col-form-label">Date
                                             Applied</label>
                                         <div class="col-10">
                                             <input class="form-control" name="dateApplied" type="date"
-                                                   value="{{item.2}}"
-                                                   id="example-date-input">
+                                                value="{{item.2}}" id="example-date-input">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" id="status" name="status" type="hidden"
-                                               value="{{item.1}}">
+                                            value="{{item.1}}">
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" id="application_id" name="application_id" type="hidden"
-                                               value="{{item.3}}">
+                                        <input class="form-control" id="application_id" name="application_id"
+                                            type="hidden" value="{{item.3}}">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
@@ -714,14 +680,13 @@
                 <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete_application{{item.3}}"><i
                         class="material-icons">delete</i></a>
                 <div class="modal fade new-application-modal" id="delete_application{{item.3}}" tabindex="-1"
-                     role="dialog"
-                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Delete Application</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
+                                    aria-label="Close"></button>
                             </div>
                             <form action="/delete_application" method="POST" id="delete_application">
 
@@ -729,8 +694,7 @@
                                     <div>Are you sure you want to delete the application {{item.0}}</div>
                                     <div class="form-group">
                                         <input class="form-control" id="application_id" name="application_id"
-                                               type="hidden"
-                                               value="{{item.3}}">
+                                            type="hidden" value="{{item.3}}">
                                     </div>
 
                                     <div class="modal-footer">
@@ -758,7 +722,7 @@
 
 <!-- Modal for New Application -->
 <div class="modal fade new-application-modal" id="wish" tabindex="-1" role="dialog"
-     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -772,54 +736,53 @@
                     <div class="form-group">
                         <label for="exampleInputName">Company Name</label>
                         <input type="text" name="companyName" class="form-control" id="exampleInputName"
-                               placeholder="Enter Company Name"
-                               required="required">
+                            placeholder="Enter Company Name" required="required">
                     </div>
                     <div class="form-group">
                         <label for="Location">Location</label>
                         <input type="text" name="location" class="form-control" id="Location"
-                               placeholder="Enter Location" required="required">
+                            placeholder="Enter Location" required="required">
                     </div>
                     <div class="form-group">
                         <label for="JobProfile">Job Profile</label>
                         <input type="text" name="jobProfile" class="form-control" id="JobProfile"
-                               placeholder="Enter Job Profile" required="required">
+                            placeholder="Enter Job Profile" required="required">
                     </div>
                     <div class="form-group">
                         <label for="Salary">Salary</label>
                         <input type="text" name="salary" class="form-control" id="Salary" placeholder="Enter Salary"
-                               required="required">
+                            required="required">
                     </div>
                     <div class="form-group">
                         <label for="Username">Username</label>
                         <input type="text" name="username" class="form-control" id="Username"
-                               placeholder="Enter Username">
+                            placeholder="Enter Username">
                     </div>
                     <div class="form-group">
                         <label for="Password">Password</label>
                         <input type="text" name="password" class="form-control" id="Password"
-                               placeholder="Enter Password">
+                            placeholder="Enter Password">
                     </div>
                     <div class="form-group">
                         <label for="SecurityQuestion">Security Question</label>
                         <input type="text" name="securityQuestion" class="form-control" id="SecurityQuestion"
-                               placeholder="Enter Security Question">
+                            placeholder="Enter Security Question">
                     </div>
                     <div class="form-group">
                         <label for="SecurityAnswer">Security Answer</label>
                         <input type="text" name="securityAnswer" class="form-control" id="SecurityAnswer"
-                               placeholder="Enter Security Answer">
+                            placeholder="Enter Security Answer">
                     </div>
                     <div class="form-group">
                         <label for="Notes">Notes</label>
                         <textarea class="form-control" id="Notes" name="notes"
-                                  placeholder="Save links and other information here"></textarea>
+                            placeholder="Save links and other information here"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="example-date-input" class="col-3 col-form-label">Date Applied</label>
                         <div class="col-10">
                             <input class="form-control" name="dateApplied" type="date" value="2020-02-01"
-                                   id="example-date-input">
+                                id="example-date-input">
                         </div>
                     </div>
                     <div class="form-group mt-3">
@@ -842,7 +805,7 @@
 
 <!-- Modal for New Application -->
 <div class="modal fade new-application-modal" id="prog" tabindex="-1" role="dialog"
-     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -856,54 +819,53 @@
                     <div class="form-group">
                         <label for="exampleInputName">Company Name</label>
                         <input type="text" name="companyName" class="form-control" id="exampleInputName"
-                               placeholder="Enter Company Name"
-                               required="required">
+                            placeholder="Enter Company Name" required="required">
                     </div>
                     <div class="form-group">
                         <label for="Location">Location</label>
                         <input type="text" name="location" class="form-control" id="Location"
-                               placeholder="Enter Location" required="required">
+                            placeholder="Enter Location" required="required">
                     </div>
                     <div class="form-group">
                         <label for="JobProfile">Job Profile</label>
                         <input type="text" name="jobProfile" class="form-control" id="JobProfile"
-                               placeholder="Enter Job Profile" required="required">
+                            placeholder="Enter Job Profile" required="required">
                     </div>
                     <div class="form-group">
                         <label for="Salary">Salary</label>
                         <input type="text" name="salary" class="form-control" id="Salary" placeholder="Enter Salary"
-                               required="required">
+                            required="required">
                     </div>
                     <div class="form-group">
                         <label for="Username">Username</label>
                         <input type="text" name="username" class="form-control" id="Username"
-                               placeholder="Enter Username">
+                            placeholder="Enter Username">
                     </div>
                     <div class="form-group">
                         <label for="Password">Password</label>
                         <input type="text" name="password" class="form-control" id="Password"
-                               placeholder="Enter Password">
+                            placeholder="Enter Password">
                     </div>
                     <div class="form-group">
                         <label for="SecurityQuestion">Security Question</label>
                         <input type="text" name="securityQuestion" class="form-control" id="SecurityQuestion"
-                               placeholder="Enter Security Question">
+                            placeholder="Enter Security Question">
                     </div>
                     <div class="form-group">
                         <label for="SecurityAnswer">Security Answer</label>
                         <input type="text" name="securityAnswer" class="form-control" id="SecurityAnswer"
-                               placeholder="Enter Security Answer">
+                            placeholder="Enter Security Answer">
                     </div>
                     <div class="form-group">
                         <label for="Notes">Notes</label>
                         <textarea class="form-control" id="Notes" name="notes"
-                                  placeholder="Save links and other information here"></textarea>
+                            placeholder="Save links and other information here"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="example-date-input" class="col-3 col-form-label">Date Applied</label>
                         <div class="col-10">
                             <input class="form-control" name="dateApplied" type="date" value="2020-02-01"
-                                   id="example-date-input">
+                                id="example-date-input">
                         </div>
                     </div>
                     <div class="form-group">
@@ -926,7 +888,7 @@
 
 <!-- Modal for New Application -->
 <div class="modal fade new-application-modal" id="applied" tabindex="-1" role="dialog"
-     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -940,55 +902,54 @@
                     <div class="form-group">
                         <label for="exampleInputName">Company Name</label>
                         <input type="text" name="companyName" class="form-control" id="exampleInputName"
-                               placeholder="Enter Company Name"
-                               required="required">
+                            placeholder="Enter Company Name" required="required">
                     </div>
                     <div class="form-group">
                         <label for="Location">Location</label>
                         <input type="text" name="location" class="form-control" id="Location"
-                               placeholder="Enter Location" required="required">
+                            placeholder="Enter Location" required="required">
                     </div>
                     <div class="form-group">
                         <label for="JobProfile">Job Profile</label>
                         <input type="text" name="jobProfile" class="form-control" id="JobProfile"
-                               placeholder="Enter Job Profile" required="required">
+                            placeholder="Enter Job Profile" required="required">
                     </div>
                     <div class="form-group">
                         <label for="Salary">Salary</label>
                         <input type="text" name="salary" class="form-control" id="Salary" placeholder="Enter Salary"
-                               required="required">
+                            required="required">
                     </div>
                     <div class="form-group">
                         <label for="Username">Username</label>
                         <input type="text" name="username" class="form-control" id="Username"
-                               placeholder="Enter Username">
+                            placeholder="Enter Username">
                     </div>
                     <div class="form-group">
                         <label for="Password">Password</label>
                         <input type="text" name="password" class="form-control" id="Password"
-                               placeholder="Enter Password">
+                            placeholder="Enter Password">
                     </div>
                     <div class="form-group">
                         <label for="SecurityQuestion">Security Question</label>
                         <input type="text" name="securityQuestion" class="form-control" id="SecurityQuestion"
-                               placeholder="Enter Security Question">
+                            placeholder="Enter Security Question">
                     </div>
                     <div class="form-group">
                         <label for="SecurityAnswer">Security Answer</label>
                         <input type="text" name="securityAnswer" class="form-control" id="SecurityAnswer"
-                               placeholder="Enter Security Answer">
+                            placeholder="Enter Security Answer">
                     </div>
                     <div class="form-group">
                         <label for="Notes">Notes</label>
                         <textarea class="form-control" id="Notes" name="notes"
-                                  placeholder="Save links and other information here"></textarea>
+                            placeholder="Save links and other information here"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="example-date-input" class="col-3 col-form-label">Date Applied</label>
                         <div class="col-10">
                             <input class="form-control" name="dateApplied" type="date" value="2020-02-01"
-                                   id="example-date-input">
+                                id="example-date-input">
                         </div>
                     </div>
                     <div class="form-group mt-3">
@@ -1011,7 +972,7 @@
 
 <!-- Modal for New Application -->
 <div class="modal fade new-application-modal" id="offer" tabindex="-1" role="dialog"
-     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -1025,54 +986,53 @@
                     <div class="form-group">
                         <label for="exampleInputName">Company Name</label>
                         <input type="text" name="companyName" class="form-control" id="exampleInputName"
-                               placeholder="Enter Company Name"
-                               required="required">
+                            placeholder="Enter Company Name" required="required">
                     </div>
                     <div class="form-group">
                         <label for="Location">Location</label>
                         <input type="text" name="location" class="form-control" id="Location"
-                               placeholder="Enter Location" required="required">
+                            placeholder="Enter Location" required="required">
                     </div>
                     <div class="form-group">
                         <label for="JobProfile">Job Profile</label>
                         <input type="text" name="jobProfile" class="form-control" id="JobProfile"
-                               placeholder="Enter Job Profile" required="required">
+                            placeholder="Enter Job Profile" required="required">
                     </div>
                     <div class="form-group">
                         <label for="Salary">Salary</label>
                         <input type="text" name="salary" class="form-control" id="Salary" placeholder="Enter Salary"
-                               required="required">
+                            required="required">
                     </div>
                     <div class="form-group">
                         <label for="Username">Username</label>
                         <input type="text" name="username" class="form-control" id="Username"
-                               placeholder="Enter Username">
+                            placeholder="Enter Username">
                     </div>
                     <div class="form-group">
                         <label for="Password">Password</label>
                         <input type="text" name="password" class="form-control" id="Password"
-                               placeholder="Enter Password">
+                            placeholder="Enter Password">
                     </div>
                     <div class="form-group">
                         <label for="SecurityQuestion">Security Question</label>
                         <input type="text" name="securityQuestion" class="form-control" id="SecurityQuestion"
-                               placeholder="Enter Security Question">
+                            placeholder="Enter Security Question">
                     </div>
                     <div class="form-group">
                         <label for="SecurityAnswer">Security Answer</label>
                         <input type="text" name="securityAnswer" class="form-control" id="SecurityAnswer"
-                               placeholder="Enter Security Answer">
+                            placeholder="Enter Security Answer">
                     </div>
                     <div class="form-group">
                         <label for="Notes">Notes</label>
                         <textarea class="form-control" id="Notes" name="notes"
-                                  placeholder="Save links and other information here"></textarea>
+                            placeholder="Save links and other information here"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="example-date-input" class="col-3 col-form-label">Date Applied</label>
                         <div class="col-10">
                             <input class="form-control" name="dateApplied" type="date" value="2020-02-01"
-                                   id="example-date-input">
+                                id="example-date-input">
                         </div>
                     </div>
                     <div class="form-group mt-3">
