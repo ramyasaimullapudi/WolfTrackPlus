@@ -3,7 +3,18 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 def s_email(company_name,location, Job_Profile,email,sec_question,sec_answer,date_applied):
+    """
+    Send an email to notify the user.
 
+    :param company_name: Company name of the application
+    :param location: location of the application
+    :param Job_Profile: Application job profile
+    :param email: email of the user
+    :param sec_question: Security question
+    :param sec_answer: security answer
+    :param date_applied: date of the application
+    :return: returns one if the email was sent successfully returns zero if it was failed
+    """
     sender_email = "wolftrackproject@gmail.com"
     receiver_email = email
     # App Password of Gmail Account

@@ -31,8 +31,6 @@ upcoming_events = [
 
 
 @home_route.route('/', methods=['GET'])
-# def home():
-#     return redirect("/auth")
 @home_route.route('/login', methods=['GET', 'POST'])
 def login():
     return render_template('login.html', loginError="")
@@ -40,13 +38,21 @@ def login():
 
 @home_route.route('/auth', methods=['GET'])
 def auth():
+    """
+    redirects to home page after authentication, intercepts the get method.
+    """
     data = user.get_auth_user_dao(session['email'])
-    data["wishlist"] = application.get(session['email'], '')
+    data["applications"] = application.get(session['email'], '')
     return render_template('home.html', data=data, upcoming_events=upcoming_events)
 
 
 @home_route.route('/loginUser', methods=['GET', 'POST'])
 def loginUser():
+    """
+    When encoundering the /loginUser url, this is function is called. it intercepts both get and post requests.
+    If recieved a get request, it fetches the login page. if recieved a post request, it checks if the login credentials are valid.
+    If the credentials are valid then page is redirected home page of the user.
+    """
     session['email'] = request.form["username"]
     password = request.form["password"]
     result = user.get(session['email'], password)
@@ -65,6 +71,12 @@ def loginUser():
 
 @home_route.route('/signup', methods=['POST'])
 def signup():
+    """
+    Intercepts the post request when hit with the /signup URL.
+    This creates a new user for the application.
+    This reads input from the form contents such as name email password gender location
+    :return:
+    """
     name = request.form["name"]
     session['email'] = request.form["email"]
     password = request.form["password"]
@@ -84,6 +96,11 @@ def signup():
 @home_route.route('/view', methods=['GET'])
 # @login_required
 def view():
+    """
+    This intercepts the /view URL get request. Displays the Page details for a application in a specific category.
+    It reads the query parameters given when passing in the URL
+    :return:
+    """
     application_category = request.args.get('show').upper()
 
     result_data = application.get(session["email"], application_category)
@@ -93,9 +110,15 @@ def view():
     return render_template('view_list.html', data=result_data, upcoming_events=upcoming_events)
 
 
-@home_route.route("/add_new_application", methods=["GET", "POST"])
+@home_route.route("/add_new_application", methods=[ "POST"])
 # @login_required
 def add_new_application():
+    """
+    This intercepts the add new application post request .
+    It reads all the application details from the form contents during the post operation and creates a new application For the user .
+
+    :return:
+    """
     company_name = request.form["companyName"]
     location = request.form["location"]
     job_profile = request.form["jobProfile"]
@@ -121,6 +144,11 @@ def add_new_application():
 @home_route.route("/change_status_application", methods=["POST"])
 # @login_required
 def change_status_application():
+    """
+    It intercepts the change status application post request.
+    It takes in the new status from the form content for the specific application ID and changes it to that status.
+    :return:
+    """
     status = request.form["status_change"]
     application_id = request.form["application_id"]
     print("status", status)
@@ -135,6 +163,10 @@ def change_status_application():
 @home_route.route("/delete_application", methods=["POST"])
 # @login_required
 def delete_application():
+    """
+    This intercepts the delete application post request it takes in the application ID and delete it from the database for the user
+    :return:
+    """
     application_id = request.form["application_id"]
     result = application.delete(application_id)
     if (result == 0):
@@ -148,6 +180,11 @@ def delete_application():
 @home_route.route("/edit_application", methods=["POST"])
 # @login_required
 def edit_application():
+    """
+    This intercepts the edit application post request.
+    It takes in the new details of the application for the given application ID and the user and modify the contents of the application in the database
+    :return:
+    """
     company_name = request.form["companyName"]
     location = request.form["location"]
     job_profile = request.form["jobProfile"]
@@ -174,6 +211,11 @@ def edit_application():
 @home_route.route("/edit_profile", methods=["POST"])
 # @login_required
 def edit_profile():
+    """
+    This intercepts the edit profile post request.
+    It takes in the new profile details of the user and edits in the user database
+    :return:
+    """
     name = request.form["name"]
     gender = request.form["gender"]
     location = request.form["location"]
@@ -189,6 +231,10 @@ def edit_profile():
 @home_route.route('/logout', methods=['GET'])
 # @login_required
 def logout():
+    """
+    Logs out the user when encountered with the logout URL get request and navigate back to the login URL
+    :return:
+    """
     # logout_user()
     return redirect("/login")
 

@@ -5,18 +5,33 @@ from DAO.application_dao import application_dao
 
 
 class Application(Resource):
+    """
+    This class is a controller for the application database. It inherits properties from flask_restful.Resource
+    """
     def __init__(self):
         self.headers = {'Content-Type': 'text/html'}
         self.application = application_dao()
 
     # @login_required
     def get(self, email, application_category):
+        """
+        Obtains stock information from the given url.
+
+        :param url: URL of the product
+        :return: a string indicating the stock information and a string indicating cost of the product
+        """
         return self.application.get_application(email, application_category)
 
     # @login_required
     def post(self, email, company_name, location, job_profile, salary, username, password, security_question,
              security_answer, notes,
              date_applied, status):
+        """
+        Obtains stock information from the given url.
+
+        :param url: URL of the product
+        :return: a string indicating the stock information and a string indicating cost of the product
+        """
         return self.application.add_application(email, company_name, location, job_profile, salary, username, password,
                                                 security_question, security_answer, notes,
                                                 date_applied, status)
