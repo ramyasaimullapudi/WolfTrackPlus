@@ -184,6 +184,13 @@ https://user-images.githubusercontent.com/17769434/140458596-e99de88a-a3ca-4965-
 
 <code><a href="https://discord.gg/wRZ56mvA" target="_blank"><img height="100" width="250" src="https://user-images.githubusercontent.com/42767118/135394825-26dee6db-7a64-4e3f-902a-1e35abd4cf0c.png"></a></code>
 
+## Email Notifiications
+
+An email is sent when a new account is created, new job application is submitted, or a status change in application. It takes in the company_name, location, job_Profile, salary, username, password,email, security_question, security_answer, notes, date_applied, status, In this format, the email is sent from
+sender – wolftrackproject@gmail.com
+receiver – The email address of the receiver
+![image](https://user-images.githubusercontent.com/19464321/144702487-52336d25-f34d-44ad-a2b7-2d813fbe4a60.jpeg)
+![image](https://user-images.githubusercontent.com/19464321/144702536-5cbcd7fa-236a-422d-b933-63d9d8c1f3c0.jpeg)
 
 ### Phase 1:
 
