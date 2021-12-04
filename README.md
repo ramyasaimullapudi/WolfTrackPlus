@@ -31,11 +31,15 @@
 ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/ramyasaimullapudi/WolfTrackPlus)
 ![GitHub all downloads](https://img.shields.io/github/downloads/ramyasaimullapudi/WolfTrackPlus/total)
 [![codecov](https://codecov.io/gh/ramyasaimullapudi/WolfTrackPlus/branch/main/graph/badge.svg?token=Sfdls5yVnN)](https://codecov.io/gh/ramyasaimullapudi/WolfTrackPlus)
+[![Documentation Status](https://readthedocs.org/projects/wolftrackplus/badge/?version=latest)](https://wolftrackplus.readthedocs.io/en/latest/?badge=latest)
+
 
 **Goal:**<br/>
 
 One stop shop for your very own personal Job-tracker application!
 
+**Documentation:**<br/>
+Checkout our documentation for source code and test cases at https://wolftrackplus.readthedocs.io/en/latest/index.html
 
 **Project Description:**
 
@@ -219,9 +223,15 @@ receiver – The email address of the receiver
 
 ### Phase3:
 
-- [ ] Embedding calendar and highligting important dates
-- [ ] Send remainder mails for deadlines
-- [ ] Upload and Maintain resume versions
+- [x] Embedding calendar and highligting important dates
+- [x] Send remainder mails for deadlines
+- [x] Upload and Maintain resume versions
+- [x] Auto documentation for the project
+- [x] Email reminders for application creation and modification
+- [x] Format checkers implemented
+- [x] Setup PythonEveryWhere for the project.
+   
+### Phase4:
 - [ ] Display the location of the application on the map
 - [ ] Share your profile with others
 - [ ] Reading mails from your inbox and automatically adding/updating the status of the application
@@ -235,9 +245,9 @@ Please refer to the [Contributing.md](https://github.com/ramyasaimullapudi/WolfT
 In case of any issues, please e-mail your queries to ramyasaimullapudi@gmail.com or raise an issue on this repository
 
 ## Contributors:
-Ramya Sai Mullapudi
-Rohan Prabhune
-Krishna Saurabh Vankkad
-Arjun Madhusudan
-Lakshmi Swetha Gavini
+Ramya Sai Mullapudi <br/>
+Rohan Prabhune <br/>
+Krishna Saurabh Vankkad <br/>
+Arjun Madhusudan <br/>
+Lakshmi Swetha Gavini <br/>
 
