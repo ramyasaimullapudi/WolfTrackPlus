@@ -1,4 +1,4 @@
-class User():
+class User:
     """
     This class is a controller for the user database. It inherits properties from flask_restful.Resource
     """
@@ -50,4 +50,3 @@ class User():
         :param location: modified location of the user
         :return: returns the new details of the user
         """
-
