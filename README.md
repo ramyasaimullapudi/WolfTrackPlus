@@ -202,7 +202,7 @@ An email is sent when a new account is created, new job application is submitted
 - [x] Create APIs for relevant functionalities
 
 ### Phase3:
-
+For more detailed description - Check [Changes.md](https://github.com/ramyasaimullapudi/WolfTrackPlus/blob/main/docs/Changes.md)
 - [x] Editing an application
 - [x] Change the application status
 - [x] Delete an application
