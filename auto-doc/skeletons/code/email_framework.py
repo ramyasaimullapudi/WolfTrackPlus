@@ -34,6 +34,7 @@ class s_email:
     |
     """
 
+
 def status_change_email(application_id, email, status):
     """
     Send email for any change in status of application
