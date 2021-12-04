@@ -8,9 +8,9 @@
 |.5|evidence that the whole team is using the same tools (e.g. config files in the repo, updated by lots of different people) |.5 | Everyone is using black </br>https://github.com/ramyasaimullapudi/WolfTrackPlus/commits/main/.github/workflows
 |.5|evidence that the members of the team are working across multiple places in the code base | .5 |https://github.com/ramyasaimullapudi/WolfTrackPlus/commits/main/Controller
 |1|Docs: what: point descriptions of each class/function (in isolation)  | 1 | https://wolftrackplus.readthedocs.io/en/latest/
-|.5|Number of commits: by different people  | .5| https://github.com/ramyasaimullapudi/WolfTrackPlus/pulse
+|.5|Number of commits: by different people  | .5| https://github.com/ramyasaimullapudi/WolfTrackPlus/pulse/monthly
 |1|issues are being closed | 1| https://github.com/ramyasaimullapudi/WolfTrackPlus/issues?q=is%3Aissue+is%3Aclosed
-|.5|issues are discussed before they are closed | .5| https://github.com/ramyasaimullapudi/WolfTrackPlus/pull/36 <br>https://github.com/ramyasaimullapudi/WolfTrackPlus/pull/8
+|.5|issues are discussed before they are closed | .5| https://github.com/ramyasaimullapudi/WolfTrackPlus/pull/36 <br>https://github.com/ramyasaimullapudi/WolfTrackPlus/pull/8 <br> https://github.com/ramyasaimullapudi/WolfTrackPlus/issues/6
 |.5|Use of syntax checkers. | .5| https://github.com/ramyasaimullapudi/WolfTrackPlus/actions/workflows/BlackFormatChecker.yml
 |1|Issues reports: there are many  |1 | https://github.com/ramyasaimullapudi/WolfTrackPlus/issues
 |.5|Use of code formatters. | .5| https://github.com/ramyasaimullapudi/WolfTrackPlus/actions/workflows/BlackFormatChecker.yml
