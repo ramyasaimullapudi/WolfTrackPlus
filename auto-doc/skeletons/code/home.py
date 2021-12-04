@@ -14,9 +14,7 @@ def auth():
 def loginUser():
     """
     Obtains username, password to login to the user profile
-    @return 0: If username does not exist
-            2: Incorrect password
-            else: redirected to user page successfully.
+    @return 0: If username does not exist, 2: Incorrect password, else: redirected to user page successfully.
     """
 
 
@@ -30,8 +28,7 @@ def signup():
     :param gender:
     :param location:
 
-    @return 0: if email already exists, or network issue to create email profile.
-            1 : if profile is created successfully.
+    @return 0: if email already exists, or network issue to create email profile, 1 : if profile is created successfully.
     """
 
 
@@ -73,12 +70,10 @@ def add_new_application():
     |
     """
 
-
 def change_status_application():
     """
     automatic update of any change in status of the application is updated here.
-    @return 0: reports error and update will not be saved
-            1: successful updation
+    @return 0: reports error and update will not be saved, 1: successful updation
     """
 
 
@@ -86,8 +81,7 @@ def delete_application(self, application_id):
     """
     deleted an application when delete button is clicked inside a particular application
     :param application_id: It is set internally when delete option on one application is clicked
-    @return 0: if error
-            1: if successfully deleted
+    @return 0: if error, 1: if successfully deleted
 
     """
 
@@ -95,8 +89,7 @@ def delete_application(self, application_id):
 def edit_application():
     """
     edits contents related to job application and notifies user if edited successfully
-    @return: 0 if error occurs
-             1 if successfully edited and redirects to authentication page
+    @return: 0 if error occurs, 1 if successfully edited and redirects to authentication page
     """
 
 
@@ -105,8 +98,7 @@ def edit_profile(self, request, user_id, name, gender, location):
     From the request form created to change either user_id, name, gender, or location,
     One more paramters will be changed
 
-    @return: 0 if error occurs
-             1 if successfully changed
+    @return: 0 if error occurs, 1 if successfully changed
     """
     self.name = request.form["name"]
     self.gender = request.form["gender"]

@@ -18,6 +18,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.abspath("../skeletons/code"))
+sys.path.insert(0, os.path.abspath("../skeletons/DAO"))
 sys.path.insert(0, os.path.abspath("../skeletons/test"))
 sys.path.insert(0, os.path.abspath("../skeletons"))
 sys.path.insert(0, os.path.abspath(".."))
