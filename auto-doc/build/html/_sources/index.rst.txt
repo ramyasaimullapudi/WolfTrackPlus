@@ -16,7 +16,7 @@ Installation:
 3. Run "python3 main.py" from the extracted folder to launch the application.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
    modules

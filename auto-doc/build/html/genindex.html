@@ -36,9 +36,9 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Controller</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html#dao">DAO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html#test">test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html#unittesting">UnitTesting</a></li>
 </ul>
 
         </div>
@@ -72,20 +72,46 @@
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
  | <a href="#V"><strong>V</strong></a>
  
 </div>
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="application_dao.html#application_dao.application_dao.add_application">add_application() (application_dao.application_dao method)</a>
+</li>
       <li><a href="home.html#home.add_new_application">add_new_application() (in module home)</a>
 </li>
+      <li><a href="application_controller.html#application_controller.Application">Application (class in application_controller)</a>
+</li>
+      <li>
+    application_controller
+
+      <ul>
+        <li><a href="application_controller.html#module-application_controller">module</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    application_dao
+
+      <ul>
+        <li><a href="application_dao.html#module-application_dao">module</a>
+</li>
+      </ul></li>
+      <li><a href="application_dao.html#application_dao.application_dao">application_dao (class in application_dao)</a>
+</li>
       <li><a href="home.html#home.auth">auth() (in module home)</a>
 </li>
   </ul></td>
@@ -94,7 +120,19 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="application_dao.html#application_dao.application_dao.change_status">change_status() (application_dao.application_dao method)</a>
+
+      <ul>
+        <li><a href="application_controller.html#application_controller.change_status">(in module application_controller)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="home.html#home.change_status_application">change_status_application() (in module home)</a>
+</li>
+      <li><a href="sql_helper.html#sql_helper.sql_helper.connect_database">connect_database() (sql_helper.sql_helper method)</a>
+</li>
+      <li><a href="user_dao.html#user_dao.user_dao.create_user">create_user() (user_dao.user_dao method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -102,7 +140,23 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="home.html#home.delete_application">delete_application() (in module home)</a>
+      <li><a href="application_controller.html#application_controller.delete">delete() (in module application_controller)</a>
+
+      <ul>
+        <li><a href="user_controller.html#user_controller.User.delete">(user_controller.User method)</a>
+</li>
+      </ul></li>
+      <li><a href="application_dao.html#application_dao.application_dao.delete_application">delete_application() (application_dao.application_dao method)</a>
+
+      <ul>
+        <li><a href="home.html#home.delete_application">(in module home)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="user_dao.html#user_dao.user_dao.delete_user">delete_user() (user_dao.user_dao method)</a>
+</li>
+      <li><a href="sql_helper.html#sql_helper.sql_helper.disconnect_database">disconnect_database() (sql_helper.sql_helper method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -113,7 +167,11 @@
       <li><a href="home.html#home.edit_application">edit_application() (in module home)</a>
 </li>
       <li><a href="home.html#home.edit_profile">edit_profile() (in module home)</a>
+
+      <ul>
+        <li><a href="user_controller.html#user_controller.User.edit_profile">(user_controller.User method)</a>
 </li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
@@ -123,6 +181,42 @@
         <li><a href="email_framework.html#module-email_framework">module</a>
 </li>
       </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="login_page_testing.html#login_page_testing.FlaskTest">FlaskTest (class in login_page_testing)</a>
+
+      <ul>
+        <li><a href="user_applications_testing.html#user_applications_testing.FlaskTest">(class in user_applications_testing)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="application_controller.html#application_controller.get">get() (in module application_controller)</a>
+
+      <ul>
+        <li><a href="user_controller.html#user_controller.User.get">(user_controller.User method)</a>
+</li>
+      </ul></li>
+      <li><a href="application_dao.html#application_dao.application_dao.get_application">get_application() (application_dao.application_dao method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="user_dao.html#user_dao.user_dao.get_auth_user">get_auth_user() (user_dao.user_dao method)</a>
+</li>
+      <li><a href="user_controller.html#user_controller.User.get_auth_user_dao">get_auth_user_dao() (user_controller.User method)</a>
+</li>
+      <li><a href="user_dao.html#user_dao.user_dao.get_user">get_user() (user_dao.user_dao method)</a>
+</li>
+      <li><a href="user_dao.html#user_dao.user_dao.get_user_id">get_user_id() (user_dao.user_dao method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -144,6 +238,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="home.html#home.login">login() (in module home)</a>
 </li>
+      <li>
+    login_page_testing
+
+      <ul>
+        <li><a href="login_page_testing.html#module-login_page_testing">module</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="home.html#home.loginUser">loginUser() (in module home)</a>
@@ -160,11 +261,49 @@
     module
 
       <ul>
+        <li><a href="application_controller.html#module-application_controller">application_controller</a>
+</li>
+        <li><a href="application_dao.html#module-application_dao">application_dao</a>
+</li>
         <li><a href="email_framework.html#module-email_framework">email_framework</a>
 </li>
         <li><a href="home.html#module-home">home</a>
 </li>
+        <li><a href="login_page_testing.html#module-login_page_testing">login_page_testing</a>
+</li>
+        <li><a href="sql_helper.html#module-sql_helper">sql_helper</a>
+</li>
+        <li><a href="user_applications_testing.html#module-user_applications_testing">user_applications_testing</a>
+</li>
+        <li><a href="user_controller.html#module-user_controller">user_controller</a>
+</li>
+        <li><a href="user_dao.html#module-user_dao">user_dao</a>
+</li>
       </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="application_controller.html#application_controller.post">post() (in module application_controller)</a>
+
+      <ul>
+        <li><a href="user_controller.html#user_controller.User.post">(user_controller.User method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="user_controller.html#user_controller.User.put">put() (user_controller.User method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="sql_helper.html#sql_helper.sql_helper.run_query">run_query() (sql_helper.sql_helper method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -173,11 +312,91 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="email_framework.html#email_framework.s_email">s_email (class in email_framework)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="home.html#home.signup">signup() (in module home)</a>
 </li>
+      <li>
+    sql_helper
+
+      <ul>
+        <li><a href="sql_helper.html#module-sql_helper">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="sql_helper.html#sql_helper.sql_helper">sql_helper (class in sql_helper)</a>
+</li>
       <li><a href="email_framework.html#email_framework.status_change_email">status_change_email() (in module email_framework)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="user_applications_testing.html#user_applications_testing.test_">test_() (in module user_applications_testing)</a>
+</li>
+      <li><a href="login_page_testing.html#login_page_testing.test_edit_application">test_edit_application() (in module login_page_testing)</a>
+</li>
+      <li><a href="login_page_testing.html#login_page_testing.test_edit_profile">test_edit_profile() (in module login_page_testing)</a>
+</li>
+      <li><a href="login_page_testing.html#login_page_testing.test_index">test_index() (in module login_page_testing)</a>
+</li>
+      <li><a href="login_page_testing.html#login_page_testing.test_index_content">test_index_content() (in module login_page_testing)</a>
+
+      <ul>
+        <li><a href="user_applications_testing.html#user_applications_testing.test_index_content">(in module user_applications_testing)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="user_applications_testing.html#user_applications_testing.test_index_data">test_index_data() (in module user_applications_testing)</a>
+</li>
+      <li><a href="login_page_testing.html#login_page_testing.test_new_application">test_new_application() (in module login_page_testing)</a>
+</li>
+      <li><a href="login_page_testing.html#login_page_testing.test_repeated_signup">test_repeated_signup() (in module login_page_testing)</a>
+</li>
+      <li><a href="login_page_testing.html#login_page_testing.test_valid_email">test_valid_email() (in module login_page_testing)</a>
+</li>
+      <li><a href="login_page_testing.html#login_page_testing.test_validate_credentials">test_validate_credentials() (in module login_page_testing)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="application_controller.html#application_controller.update">update() (in module application_controller)</a>
+</li>
+      <li><a href="application_dao.html#application_dao.application_dao.update_application">update_application() (application_dao.application_dao method)</a>
+</li>
+      <li><a href="user_dao.html#user_dao.user_dao.update_details">update_details() (user_dao.user_dao method)</a>
+</li>
+      <li><a href="user_controller.html#user_controller.User">User (class in user_controller)</a>
+</li>
+      <li>
+    user_applications_testing
+
+      <ul>
+        <li><a href="user_applications_testing.html#module-user_applications_testing">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    user_controller
+
+      <ul>
+        <li><a href="user_controller.html#module-user_controller">module</a>
+</li>
+      </ul></li>
+      <li>
+    user_dao
+
+      <ul>
+        <li><a href="user_dao.html#module-user_dao">module</a>
+</li>
+      </ul></li>
+      <li><a href="user_dao.html#user_dao.user_dao">user_dao (class in user_dao)</a>
 </li>
   </ul></td>
 </tr></table>

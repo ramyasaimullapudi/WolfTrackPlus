@@ -17,10 +17,10 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath("../skeletons/code"))
-sys.path.insert(0, os.path.abspath("../skeletons/DAO"))
-sys.path.insert(0, os.path.abspath("../skeletons/test"))
-sys.path.insert(0, os.path.abspath("../skeletons"))
+sys.path.insert(0, os.path.abspath("../code/Controller"))
+sys.path.insert(0, os.path.abspath("../code/DAO"))
+sys.path.insert(0, os.path.abspath("../code/UnitTesting"))
+sys.path.insert(0, os.path.abspath("../code"))
 sys.path.insert(0, os.path.abspath(".."))
 print(sys.path)
 
