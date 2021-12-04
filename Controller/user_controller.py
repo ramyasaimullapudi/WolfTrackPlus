@@ -10,8 +10,9 @@ from flask_login import login_required
 
 class User(Resource):
     """
-        This class is a controller for the user database. It inherits properties from flask_restful.Resource
+    This class is a controller for the user database. It inherits properties from flask_restful.Resource
     """
+
     def __init__(self):
         self.headers = {"Content-Type": "text/html"}
         self.user = user_dao()
