@@ -64,9 +64,10 @@ def add_new_application():
         * - Security Answer
           - Corresponding answer for the previous question
         * - Status
-          - "Applied"
+          - Applied
         * - Notes
           - Any notes or information you would like to share with the company
+
     |
     """
 
