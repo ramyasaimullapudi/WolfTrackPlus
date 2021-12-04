@@ -45,9 +45,6 @@ Checkout our documentation for source code and test cases at https://wolftrackpl
 
 Do away with complicated, messy spreadsheets! WolfTrack keeps track of every job detail, we're talking about dates, notes, tasks, job descriptions, salaries, locations, company insight and more!
 
-
-![Alt Text](https://media.giphy.com/media/btbUGSHh3f6eBjbDfh/giphy-downsized-large.gif?cid=ecf05e471ph0c5s2yc63oqz7nswkx588z022ckw6vm3jhzmh&rid=giphy-downsized-large.gif&ct=g)
-
 **So, let's go get that job! 😎**
 
 
@@ -55,11 +52,6 @@ Do away with complicated, messy spreadsheets! WolfTrack keeps track of every job
 https://user-images.githubusercontent.com/18304940/135203686-c480c101-7aa5-40ca-9f43-baf291c666cd.mp4
 
 https://user-images.githubusercontent.com/17769434/140458596-e99de88a-a3ca-4965-bb7b-f38f79a2179e.mp4
-
-
-**Our motto:**
-
-![Alt Text](https://media.giphy.com/media/7zBG3bIV14nddNj3ko/giphy.gif?cid=790b76112100f623635602c75ee21781b0c6dceb288c4777&rid=giphy.gif&ct=s)
 
 
 <!-- 
@@ -127,18 +119,12 @@ https://user-images.githubusercontent.com/17769434/140458596-e99de88a-a3ca-4965-
 
      - Site will be hosted at:
        `http://127.0.0.1:5000/`
----       
-## Tools
-- [Preetier Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [JS-HTML-CSS Formatter](https://marketplace.visualstudio.com/items?itemName=lonefy.vscode-JS-CSS-HTML-formatter)
-- [PyLint](https://pylint.org/)
-
+    
 ---
 ## Third-Party Tools
 
 - [AWS Relational Database Service-RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html)
   -  The AWS Database is used as a primary DB by the location. The application interacts with the DB and no additional steps are required from the users. For any contributors or future developers, please mail to wolftrackse@gmail.com to get your AWS IAM user account details to connect to AWS RDS.
-- [Microsft Power BI](https://docs.microsoft.com/en-us/power-bi/)
 
 ---
 ## Preview
@@ -186,18 +172,12 @@ https://user-images.githubusercontent.com/17769434/140458596-e99de88a-a3ca-4965-
     ![image](https://user-images.githubusercontent.com/51504486/144658895-e46c0aa6-0e1a-41ac-b349-8f4e2560d282.png)
     
 ---
-## Chat Channel
-
-<code><a href="https://discord.gg/wRZ56mvA" target="_blank"><img height="100" width="250" src="https://user-images.githubusercontent.com/42767118/135394825-26dee6db-7a64-4e3f-902a-1e35abd4cf0c.png"></a></code>
-
 ## Email Notifiications
 
-An email is sent when a new account is created, new job application is submitted, or a status change in application. It takes in the company_name, location, job_Profile, salary, username, password,email, security_question, security_answer, notes, date_applied, status, In this format, the email is sent from
-sender – wolftrackproject@gmail.com
-receiver – The email address of the receiver
-![image](https://user-images.githubusercontent.com/19464321/144719899-3a51587b-631d-454c-9dac-fab21cc6a387.png)
+An email is sent when a new account is created, new job application is submitted, or a status change in application.
+![image](https://user-images.githubusercontent.com/51504486/144724525-adb6691e-046a-479c-a050-341b9cf64d73.png)
 
-![image](https://user-images.githubusercontent.com/19464321/144720031-e6f3041c-dc6f-4040-aa37-d8644d4a154a.png)
+![image](https://user-images.githubusercontent.com/51504486/144724556-7d3bad98-5175-4663-bc2d-b601dac4137f.png)
 
 
 ### Phase 1:
@@ -223,13 +203,15 @@ receiver – The email address of the receiver
 
 ### Phase3:
 
-- [x] Embedding calendar and highligting important dates
-- [x] Send remainder mails for deadlines
-- [x] Upload and Maintain resume versions
-- [x] Auto documentation for the project
+- [x] Editing an application
+- [x] Change the application status
+- [x] Delete an application
+- [x] Added scrollbar for job listings on dashboard
+- [x] Edit the user profile
+- [x] Auto documentation for the project using Sphinx
 - [x] Email reminders for application creation and modification
 - [x] Format checkers implemented
-- [x] Setup PythonEveryWhere for the project.
+- [x] Hosted the website - http://rjprabhu.pythonanywhere.com/
    
 ### Phase4:
 - [ ] Display the location of the application on the map
