@@ -39,7 +39,7 @@
 One stop shop for your very own personal Job-tracker application!
 
 **Documentation:**<br/>
-Checkout our documentation for source code and test cases at https://wolftrackplus.readthedocs.io/en/latest/index.html
+Checkout our documentation for source code and test cases at https://wolftrackplus.readthedocs.io/en/latest/
 
 **Project Description:**
 
