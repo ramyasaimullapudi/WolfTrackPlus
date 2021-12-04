@@ -17,7 +17,9 @@
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="home module" href="home.html" />
+    <link rel="prev" title="application_controller module" href="application_controller.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -36,10 +38,16 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">code</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Controller</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="application_controller.html">application_controller module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">email_framework module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="home.html">home module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_controller.html">user_controller module</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html#dao">DAO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html#test">test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html#unittesting">UnitTesting</a></li>
 </ul>
 
         </div>
@@ -56,6 +64,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">Controller</a> &raquo;</li>
       <li>email_framework module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/email_framework.rst.txt" rel="nofollow"> View page source</a>
@@ -70,48 +79,9 @@
 <span id="email-framework-module"></span><h1>email_framework module<a class="headerlink" href="#module-email_framework" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="email_framework.s_email">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">email_framework.</span></span><span class="sig-name descname"><span class="pre">s_email</span></span><a class="headerlink" href="#email_framework.s_email" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">email_framework.</span></span><span class="sig-name descname"><span class="pre">s_email</span></span><a class="headerlink" href="#email_framework.s_email" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class that defines the email parameters.An email is sent when a new account is created, new job application is submitted, or a status change in application. It takes in the company_name, location, job_Profile, salary, username, password,email, security_question, security_answer, notes, date_applied, status, In this format, the email is sent from</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>sender</strong> – <a class="reference external" href="mailto:wolftrackproject&#37;&#52;&#48;gmail&#46;com">wolftrackproject<span>&#64;</span>gmail<span>&#46;</span>com</a></p></li>
-<li><p><strong>receiver</strong> – The email address of the receiver(User)</p></li>
-</ul>
-</dd>
-</dl>
-<p>&#64;return: true if the email sent successfully, false if not
-.. list-table:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">header</span><span class="o">-</span><span class="n">rows</span><span class="p">:</span> <span class="mi">1</span>
-
-<span class="o">*</span> <span class="o">-</span> <span class="n">Content</span>
-  <span class="o">-</span> <span class="n">Value</span>
-<span class="o">*</span> <span class="o">-</span> <span class="n">company</span> <span class="n">Name</span>
-  <span class="o">-</span> <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">company</span>
-<span class="o">*</span> <span class="o">-</span> <span class="n">Date</span> <span class="n">Applied</span>
-  <span class="o">-</span> <span class="n">Today</span><span class="s1">&#39;s date</span>
-<span class="o">*</span> <span class="o">-</span> <span class="n">Location</span>
-  <span class="o">-</span> <span class="n">Location</span> <span class="n">you</span> <span class="n">entered</span> <span class="k">for</span> <span class="n">job</span> <span class="n">application</span>
-<span class="o">*</span> <span class="o">-</span> <span class="n">Salary</span>
-  <span class="o">-</span> <span class="n">Your</span> <span class="n">salary</span> <span class="n">expectation</span>
-<span class="o">*</span> <span class="o">-</span> <span class="n">User_name</span>
-  <span class="o">-</span> <span class="n">Username</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">create</span> <span class="ow">in</span> <span class="n">job</span> <span class="n">application</span> <span class="n">portal</span>
-<span class="o">*</span> <span class="o">-</span> <span class="n">Password</span>
-  <span class="o">-</span> <span class="n">Password</span> <span class="n">you</span> <span class="n">wish</span> <span class="n">to</span> <span class="nb">set</span> <span class="k">for</span> <span class="n">the</span> <span class="n">job</span> <span class="n">application</span> <span class="n">portal</span>
-<span class="o">*</span> <span class="o">-</span> <span class="n">Security</span> <span class="n">Question</span>
-  <span class="o">-</span> <span class="n">Any</span> <span class="n">relevant</span> <span class="n">question</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="nb">set</span>
-<span class="o">*</span> <span class="o">-</span> <span class="n">Security</span> <span class="n">Answer</span>
-  <span class="o">-</span> <span class="n">Corresponding</span> <span class="n">answer</span> <span class="k">for</span> <span class="n">the</span> <span class="n">previous</span> <span class="n">question</span>
-<span class="o">*</span> <span class="o">-</span> <span class="n">Status</span>
-  <span class="o">-</span> <span class="s2">&quot;Applied&quot;</span>
-<span class="o">*</span> <span class="o">-</span> <span class="n">Notes</span>
-  <span class="o">-</span> <span class="n">Any</span> <span class="n">notes</span> <span class="ow">or</span> <span class="n">information</span> <span class="n">you</span> <span class="n">would</span> <span class="n">like</span> <span class="n">to</span> <span class="n">share</span> <span class="k">with</span> <span class="n">the</span> <span class="n">company</span>
-</pre></div>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
 </dd></dl>
 
 <dl class="py function">
@@ -134,7 +104,10 @@
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="application_controller.html" class="btn btn-neutral float-left" title="application_controller module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="home.html" class="btn btn-neutral float-right" title="home module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

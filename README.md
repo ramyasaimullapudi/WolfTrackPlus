@@ -31,6 +31,8 @@
 ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/ramyasaimullapudi/WolfTrackPlus)
 ![GitHub all downloads](https://img.shields.io/github/downloads/ramyasaimullapudi/WolfTrackPlus/total)
 [![codecov](https://codecov.io/gh/ramyasaimullapudi/WolfTrackPlus/branch/main/graph/badge.svg?token=Sfdls5yVnN)](https://codecov.io/gh/ramyasaimullapudi/WolfTrackPlus)
+[![Documentation Status](https://readthedocs.org/projects/wolftrackplus/badge/?version=latest)](https://wolftrackplus.readthedocs.io/en/latest/?badge=latest)
+
 
 **Goal:**<br/>
 
@@ -221,9 +223,15 @@ receiver – The email address of the receiver
 
 ### Phase3:
 
-- [ ] Embedding calendar and highligting important dates
-- [ ] Send remainder mails for deadlines
-- [ ] Upload and Maintain resume versions
+- [x] Embedding calendar and highligting important dates
+- [x] Send remainder mails for deadlines
+- [x] Upload and Maintain resume versions
+- [x] Auto documentation for the project
+- [x] Email reminders for application creation and modification
+- [x] Format checkers implemented
+- [x] Setup PythonEveryWhere for the project.
+   
+### Phase4:
 - [ ] Display the location of the application on the map
 - [ ] Share your profile with others
 - [ ] Reading mails from your inbox and automatically adding/updating the status of the application
