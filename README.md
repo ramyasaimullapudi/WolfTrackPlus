@@ -36,6 +36,8 @@
 
 One stop shop for your very own personal Job-tracker application!
 
+**Documentation:**<br/>
+Checkout our documentation for source code and test cases at https://wolftrackplus.readthedocs.io/en/latest/index.html
 
 **Project Description:**
 
@@ -235,9 +237,9 @@ Please refer to the [Contributing.md](https://github.com/ramyasaimullapudi/WolfT
 In case of any issues, please e-mail your queries to ramyasaimullapudi@gmail.com or raise an issue on this repository
 
 ## Contributors:
-Ramya Sai Mullapudi
-Rohan Prabhune
-Krishna Saurabh Vankkad
-Arjun Madhusudan
-Lakshmi Swetha Gavini
+Ramya Sai Mullapudi <br/>
+Rohan Prabhune <br/>
+Krishna Saurabh Vankkad <br/>
+Arjun Madhusudan <br/>
+Lakshmi Swetha Gavini <br/>
 
