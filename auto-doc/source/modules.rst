@@ -25,3 +25,6 @@ test
 .. toctree::
    :maxdepth: 4
 
+    login_page_testing
+    user_applications_testing
+
