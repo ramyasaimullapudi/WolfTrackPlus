@@ -25,4 +25,3 @@ class Profile(Resource):
     def delete(self):
         some_json = request.get_json()
         return {"you sent": some_json}, 201
-

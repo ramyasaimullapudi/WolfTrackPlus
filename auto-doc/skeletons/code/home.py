@@ -3,11 +3,13 @@ def login():
     renders the html page for login, and takes user inputs .
     """
 
+
 def auth():
     """
     Obtains the correct credentials, autheticates and creates a session for the user to stay logged in.
 
     """
+
 
 def loginUser():
     """
@@ -16,6 +18,7 @@ def loginUser():
             2: Incorrect password
             else: redirected to user page successfully.
     """
+
 
 def signup():
     """
@@ -31,11 +34,13 @@ def signup():
             1 : if profile is created successfully.
     """
 
+
 def view():
     """
     Obtains the main page content of the wolftrackplus website.
     It contains the retrieval parameters to get custom events, deadlines, and incoming general deadlines.
     """
+
 
 def add_new_application():
     """
@@ -68,12 +73,14 @@ def add_new_application():
     |
     """
 
+
 def change_status_application():
     """
-        automatic update of any change in status of the application is updated here.
-        @return 0: reports error and update will not be saved
-                1: successful updation
+    automatic update of any change in status of the application is updated here.
+    @return 0: reports error and update will not be saved
+            1: successful updation
     """
+
 
 def delete_application(self, application_id):
     """
@@ -84,12 +91,14 @@ def delete_application(self, application_id):
 
     """
 
+
 def edit_application():
     """
     edits contents related to job application and notifies user if edited successfully
     @return: 0 if error occurs
              1 if successfully edited and redirects to authentication page
     """
+
 
 def edit_profile(self, request, user_id, name, gender, location):
     """
@@ -103,6 +112,7 @@ def edit_profile(self, request, user_id, name, gender, location):
     self.gender = request.form["gender"]
     self.location = request.form["location"]
     self.user_id = request.form["user_id"]
+
 
 def logout(self):
     """
