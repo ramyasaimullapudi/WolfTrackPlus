@@ -87,7 +87,9 @@ https://user-images.githubusercontent.com/17769434/140458596-e99de88a-a3ca-4965-
 <p align="center">
 <img src="https://i.giphy.com/media/LMt9638dO8dftAjtco/200.webp" width="150"> <img src="https://i.giphy.com/media/KzJkzjggfGN5Py6nkT/200.webp" width="150"><img src="https://i.giphy.com/media/IdyAQJVN2kVPNUrojM/200.webp" width="150"> <img src="https://media.giphy.com/media/UWt0rhp21JgLwoeFQP/giphy.gif" width ="150"/> <img src="https://media.giphy.com/media/kH6CqYiquZawmU1HI6/giphy.gif" width ="150"/> 
 </p>
+
 ---
+
 ## Getting started:
 
   - ### Prerequisite:
@@ -157,7 +159,7 @@ https://user-images.githubusercontent.com/17769434/140458596-e99de88a-a3ca-4965-
 
   - Upcoming Activities - The upcoming activities shows the top 5 activities nearing the deadline. The activities are picked up from the applications and the company name and the due date is displayed on this section. 
   - Location- The map shows the various office locations for the applied companies. The thought behind is to better plan the commute and residence based on the location distance
-  - ![image](https://user-images.githubusercontent.com/51504486/144658182-1cb65338-09dd-4698-acde-4b5651ca5022.png)
+    ![image](https://user-images.githubusercontent.com/51504486/144658182-1cb65338-09dd-4698-acde-4b5651ca5022.png)
  
 - **Edit User Profile** 
   - User has the option to edit profile
