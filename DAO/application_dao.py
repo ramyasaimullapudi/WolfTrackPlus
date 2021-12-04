@@ -2,7 +2,13 @@ from DAO.sql_helper import sql_helper
 
 
 class application_dao:
+    """
+    This is the application_dao class."
+    """
     def __init__(self):
+        """
+        This is the default constructor for the application_dao class.
+        """
         self.__db = sql_helper()
 
     def add_application(
@@ -20,6 +26,25 @@ class application_dao:
         date_applied,
         status,
     ):
+        """[summary]
+
+        Args:
+            email (string): Email ID of the user for that application.
+            company_name (string): Company to which the user is applying to.
+            location (string): Location of the job posting.
+            job_profile (string): Type of role.
+            salary (int): Salary that the job offers.
+            username (string): Login credentials for the application.
+            password (string): Password for the application.
+            security_question (string): Security question for the application.
+            security_answer (string): Answer to the application's security questions.
+            notes (string): Any notes that the user might want to add in regards to their application.
+            date_applied (date): 
+            status (string): 
+
+        Returns:
+            [type]: [description]
+        """
         userId = self.__db.run_query(
             "SELECT user_id FROM user WHERE email='" + email + "'"
         )[0][0]
