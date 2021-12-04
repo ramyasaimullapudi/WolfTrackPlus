@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>email_framework module &mdash; WolfTrackPlus v3.8 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> WolfTrackPlus
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html#dao">DAO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html#test">test</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">WolfTrackPlus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>email_framework module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/email_framework.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-email_framework">
+<span id="email-framework-module"></span><h1>email_framework module<a class="headerlink" href="#module-email_framework" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="email_framework.s_email">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">email_framework.</span></span><span class="sig-name descname"><span class="pre">s_email</span></span><a class="headerlink" href="#email_framework.s_email" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class that defines the email parameters.An email is sent when a new account is created, new job application is submitted, or a status change in application. It takes in the company_name, location, job_Profile, salary, username, password,email, security_question, security_answer, notes, date_applied, status, In this format, the email is sent from</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sender</strong> – <a class="reference external" href="mailto:wolftrackproject&#37;&#52;&#48;gmail&#46;com">wolftrackproject<span>&#64;</span>gmail<span>&#46;</span>com</a></p></li>
+<li><p><strong>receiver</strong> – The email address of the receiver(User)</p></li>
+</ul>
+</dd>
+</dl>
+<p>&#64;return: true if the email sent successfully, false if not
+.. list-table:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">header</span><span class="o">-</span><span class="n">rows</span><span class="p">:</span> <span class="mi">1</span>
+
+<span class="o">*</span> <span class="o">-</span> <span class="n">Content</span>
+  <span class="o">-</span> <span class="n">Value</span>
+<span class="o">*</span> <span class="o">-</span> <span class="n">company</span> <span class="n">Name</span>
+  <span class="o">-</span> <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">company</span>
+<span class="o">*</span> <span class="o">-</span> <span class="n">Date</span> <span class="n">Applied</span>
+  <span class="o">-</span> <span class="n">Today</span><span class="s1">&#39;s date</span>
+<span class="o">*</span> <span class="o">-</span> <span class="n">Location</span>
+  <span class="o">-</span> <span class="n">Location</span> <span class="n">you</span> <span class="n">entered</span> <span class="k">for</span> <span class="n">job</span> <span class="n">application</span>
+<span class="o">*</span> <span class="o">-</span> <span class="n">Salary</span>
+  <span class="o">-</span> <span class="n">Your</span> <span class="n">salary</span> <span class="n">expectation</span>
+<span class="o">*</span> <span class="o">-</span> <span class="n">User_name</span>
+  <span class="o">-</span> <span class="n">Username</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">create</span> <span class="ow">in</span> <span class="n">job</span> <span class="n">application</span> <span class="n">portal</span>
+<span class="o">*</span> <span class="o">-</span> <span class="n">Password</span>
+  <span class="o">-</span> <span class="n">Password</span> <span class="n">you</span> <span class="n">wish</span> <span class="n">to</span> <span class="nb">set</span> <span class="k">for</span> <span class="n">the</span> <span class="n">job</span> <span class="n">application</span> <span class="n">portal</span>
+<span class="o">*</span> <span class="o">-</span> <span class="n">Security</span> <span class="n">Question</span>
+  <span class="o">-</span> <span class="n">Any</span> <span class="n">relevant</span> <span class="n">question</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="nb">set</span>
+<span class="o">*</span> <span class="o">-</span> <span class="n">Security</span> <span class="n">Answer</span>
+  <span class="o">-</span> <span class="n">Corresponding</span> <span class="n">answer</span> <span class="k">for</span> <span class="n">the</span> <span class="n">previous</span> <span class="n">question</span>
+<span class="o">*</span> <span class="o">-</span> <span class="n">Status</span>
+  <span class="o">-</span> <span class="s2">&quot;Applied&quot;</span>
+<span class="o">*</span> <span class="o">-</span> <span class="n">Notes</span>
+  <span class="o">-</span> <span class="n">Any</span> <span class="n">notes</span> <span class="ow">or</span> <span class="n">information</span> <span class="n">you</span> <span class="n">would</span> <span class="n">like</span> <span class="n">to</span> <span class="n">share</span> <span class="k">with</span> <span class="n">the</span> <span class="n">company</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="email_framework.status_change_email">
+<span class="sig-prename descclassname"><span class="pre">email_framework.</span></span><span class="sig-name descname"><span class="pre">status_change_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">application_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#email_framework.status_change_email" title="Permalink to this definition"></a></dt>
+<dd><p>Send email for any change in status of application</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>application_id</strong> – an ID is created when you sent a job application. That is used here.</p></li>
+<li><p><strong>email</strong> – Your email ID mentioned in the job application will be notified.</p></li>
+<li><p><strong>status</strong> – The status of your application change to “In Review”, “Interview”, “Offered”, “Rejected”, “No Longer under consideration”</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Ramya Sai Mullapudi, Lakshmi Swetha Gavini, Rohan Prabune, Arjun Madhusudan, Saurabh Krishna Vankkad.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
