@@ -8,13 +8,13 @@ def s_email(
     location,
     job_Profile,
     salary,
-    username,
-    password,
+    # username,
+    # password,
     email,
-    security_question,
-    security_answer,
-    notes,
-    date_applied,
+    # security_question,
+    # security_answer,
+    # notes,
+    # date_applied,
     status,
 ):
     """
@@ -24,9 +24,6 @@ def s_email(
     :param location: location of the application
     :param Job_Profile: Application job profile
     :param email: email of the user
-    :param sec_question: Security question
-    :param sec_answer: security answer
-    :param date_applied: date of the application
     :return: returns one if the email was sent successfully returns zero if it was failed
     """
     sender_email = "wolftrackproject@gmail.com"
@@ -41,15 +38,15 @@ def s_email(
         + " for the job profile - "
         + job_Profile
         + ". \nPlease find the details below: \n"
-        "Date Applied: " + date_applied + "\n"
+        # "Date Applied: " + date_applied + "\n"
         "Location: " + location + "\n"
         "Salary: " + salary + "\n"
-        "User_name: " + username + "\n"
-        "Password: " + password + "\n"
-        "Security Question: " + security_question + "\n"
-        "Security Answer: " + security_answer + "\n"
+        # "User_name: " + username + "\n"
+        # "Password: " + password + "\n"
+        # "Security Question: " + security_question + "\n"
+        # "Security Answer: " + security_answer + "\n"
         "Status: " + status + "\n"
-        "Notes: " + notes + "\n\n\n"
+        # "Notes: " + notes + "\n\n\n"
         "All the best for you Application!\n"
         "The WolfTrack++ Team."
     )

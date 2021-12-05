@@ -11,7 +11,9 @@ api = Api(app)
 app.config["SECRET_KEY"] = "Sample"  # os.environ.get('SECRET_KEY')
 api.add_resource(User, "/user")
 api.add_resource(Application, "/application")
+app.register_blueprint(home_route, url_prefix="/login")
 app.register_blueprint(home_route, url_prefix="/")
+app.register_blueprint(home_route, url_prefix="/auth")
 app.app_context().push()
 
 

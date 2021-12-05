@@ -41,6 +41,9 @@ One stop shop for your very own personal Job-tracker application!
 **Documentation:**<br/>
 Checkout our documentation for source code and test cases at https://wolftrackplus.readthedocs.io/en/latest/
 
+**Project Presentation Video:**</br>
+You can find our presentation video hosted on YouTube here: https://youtu.be/BU0Yjj9Mu2g
+
 **Project Description:**
 
 Do away with complicated, messy spreadsheets! WolfTrack keeps track of every job detail, we're talking about dates, notes, tasks, job descriptions, salaries, locations, company insight and more!
