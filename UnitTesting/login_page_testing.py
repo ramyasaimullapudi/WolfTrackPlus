@@ -108,6 +108,17 @@ class FlaskTest(unittest.TestCase):
         )
         self.assertEqual(response.status_code, 400)
 
+     def test_edit_profile(self):
+        with app.test_client(self) as c:
+            with c.session_transaction() as sess:
+                sess["email"] = "ramyasaimullapudi@gmail.com"
+                sess["password"] = "mramyasai"
+        response = c.post(
+            "/edit_profile", data={"name": "Ramya Sai Mullapudi", "location": "NC"}
+        )
+        self.assertEqual(response.status_code, 400)
+        
+        
     def test_edit_profile(self):
         with app.test_client(self) as c:
             with c.session_transaction() as sess:
@@ -117,6 +128,8 @@ class FlaskTest(unittest.TestCase):
             "/edit_profile", data={"name": "sravya", "location": "Seattle"}
         )
         self.assertEqual(response.status_code, 400)
+        
+     
 
     def test_edit_profile(self):
         with app.test_client(self) as c:
